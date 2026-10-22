@@ -803,7 +803,7 @@ h2 em{font-style:italic;color:var(--gold-hi);
           <button role="tab" aria-selected="true">DKI Raya</button><button role="tab" aria-selected="false">Banten</button><button role="tab" aria-selected="false">Citarum</button>
         </div>
         <div class="panel on pics" role="tabpanel" id="pics-dki"></div>
-        <div class="panel" role="tabpanel"><div class="soon"><b>Segera hadir</b>Kontak PIC Area Banten akan diumumkan.</div></div>
+        <div class="panel pics" role="tabpanel" id="pics-banten"></div>
         <div class="panel pics" role="tabpanel" id="pics-citarum"></div>
       </div>
     </div></div>
@@ -908,7 +908,12 @@ h2 em{font-style:italic;color:var(--gold-hi);
     return '<div class="pic rv" style="--i:'+(4+i)+'"><span class="dso">'+p[0]+'</span><div class="who"><b>'+p[1]+'</b><span>'+(p[2]||'Nomor menyusul')+'</span></div>'+
       (p[3]?'<a class="wa" href="https://wa.me/'+p[3]+'" target="_blank" rel="noopener" aria-label="WhatsApp '+p[1]+'">'+waIc+'Chat</a>':'')+'</div>';
   }).join(''); }
-  renderPics('pics-dki',pics); renderPics('pics-citarum',citarum);
+  var banten=[
+    ['Serang &amp;<br>Rangkas','Adi Gunawwan','0859-4037-8192','6285940378192'],
+    ['Tangerang<br>Raya','Bambang Teguh H.','0813-1882-9964','6281318829964'],
+    ['Sukabumi','Cecep Adri Hasan','0858-6230-6188','6285862306188']
+  ];
+  renderPics('pics-dki',pics); renderPics('pics-banten',banten); renderPics('pics-citarum',citarum);
 
   /* emergency */
   var ic={
