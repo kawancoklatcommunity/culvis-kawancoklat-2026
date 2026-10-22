@@ -269,6 +269,33 @@ h2 em{font-style:italic;color:var(--gold-hi);
 .clock small{display:block;margin-top:7px;font:600 9px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
 .ready{text-align:center;margin-top:18px;font:italic 500 30px/1 var(--serif);color:var(--cream)}
 
+/* ---------- konfirmasi ---------- */
+.rsvp{margin-top:16px;border:1px solid var(--line);border-radius:18px;padding:18px 16px;background:linear-gradient(180deg,rgba(60,32,14,.6),rgba(22,11,5,.7));text-align:center}
+.rsvp .who-n{font:600 10px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--gold-lo)}
+.rsvp .who-v{display:block;font:italic 600 24px/1.15 var(--serif);color:var(--gold-hi);margin:6px 0 14px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opt{display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px 8px 14px;border-radius:14px;border:1px solid var(--line);background:rgba(10,5,2,.45);color:var(--cream);font:600 13px/1.2 var(--sans);transition:all .35s var(--ease)}
+.opt svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;color:var(--gold)}
+.opt.no svg{color:#ef9a7c}
+.opt[aria-pressed="true"]{border-color:var(--gold);background:linear-gradient(180deg,rgba(236,202,134,.22),rgba(236,202,134,.06));box-shadow:0 0 0 3px rgba(236,202,134,.12);transform:translateY(-2px)}
+.opt.no[aria-pressed="true"]{border-color:#ef9a7c;background:linear-gradient(180deg,rgba(239,154,124,.2),rgba(239,154,124,.05));box-shadow:0 0 0 3px rgba(239,154,124,.12)}
+.note{display:none;width:100%;margin-top:10px;min-height:64px;border-radius:12px;border:1px solid var(--line);background:rgba(10,5,2,.55);color:var(--cream);font:400 13px/1.45 var(--sans);padding:10px 12px;resize:none}
+.note::placeholder{color:var(--muted)}
+.note.on{display:block;animation:pin .4s var(--ease)}
+.send{width:100%;margin-top:12px;padding:14px;border-radius:999px;background:linear-gradient(180deg,#f0d18f,#c99b4f);color:#2a1607;font:700 12px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;box-shadow:0 10px 26px -12px rgba(240,200,120,.6);transition:opacity .3s}
+.send:disabled{opacity:.4;cursor:not-allowed}
+.rs-done{display:none;padding:6px 0 2px}
+.rs-done.on{display:block;animation:pin .6s var(--ease)}
+.rs-done .ok{width:64px;height:64px;margin:0 auto 12px;border-radius:50%;border:1.5px solid var(--gold);display:grid;place-items:center;color:var(--gold-hi);background:radial-gradient(circle,rgba(236,202,134,.2),transparent 70%)}
+.rs-done .ok svg{width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.rs-done .ok path{stroke-dasharray:1 1;stroke-dashoffset:1;animation:drawk .9s var(--ease) .2s forwards}
+@keyframes drawk{to{stroke-dashoffset:0}}
+.rs-done b{display:block;font:italic 600 22px/1.2 var(--serif);color:var(--cream)}
+.rs-done p{font-size:12.5px;color:var(--muted);margin-top:6px;line-height:1.5}
+.rs-done button{margin-top:12px;font:700 10.5px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--gold-hi);border-bottom:1px solid var(--gold-lo);padding-bottom:3px}
+.rs-off{font-size:13px;line-height:1.6;color:var(--muted)}
+.rs-off b{display:block;font:italic 500 20px/1.2 var(--serif);color:var(--cream);margin-bottom:6px}
+
 /* ---------- kontak ---------- */
 .pics{margin-top:14px}
 .pic{display:flex;align-items:center;gap:11px;padding:8px 10px 8px 8px;border:1px solid var(--faint);border-radius:12px;background:rgba(20,10,5,.6);margin-bottom:7px}
@@ -735,6 +762,34 @@ h2 em{font-style:italic;color:var(--gold-hi);
     </div></div>
   </section>
 
+  <!-- 7b. KONFIRMASI -->
+  <section class="page" data-title="Konfirmasi">
+    <div class="frame"><img class="leaf l" src="img/leaf.webp" alt="" aria-hidden="true"><img class="leaf r" src="img/leaf.webp" alt="" aria-hidden="true"><div class="fit">
+      <p class="eyebrow rv" style="--i:0">Konfirmasi Kehadiran</p>
+      <h2 class="rv" style="--i:1">Kamu <em>ikut</em>, kan?</h2>
+      <p class="lead rv" style="--i:2">Bantu panitia menyiapkan kursi bus, kamar, dan perlengkapanmu.</p>
+      <div class="rsvp rv" style="--i:3" id="rsvp">
+        <div id="rsForm">
+          <span class="who-n">Atas nama</span>
+          <span class="who-v" id="rsName">Kawan Coklat</span>
+          <div class="opts" role="group" aria-label="Pilihan kehadiran">
+            <button type="button" class="opt" data-v="Siap Hadir" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M7.5 12.5l3 3 6-6.5"/></svg>Siap Hadir</button>
+            <button type="button" class="opt no" data-v="Berhalangan" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg>Berhalangan</button>
+          </div>
+          <textarea class="note" id="rsNote" maxlength="300" placeholder="Boleh ceritakan alasannya (opsional)"></textarea>
+          <button type="button" class="send" id="rsSend" disabled>Kirim Konfirmasi</button>
+        </div>
+        <div class="rs-done" id="rsDone">
+          <div class="ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M5.5 12.5l4 4 9-9.5"/></svg></div>
+          <b id="rsDoneT">Terima kasih!</b>
+          <p id="rsDoneP"></p>
+          <button type="button" id="rsEdit">Ubah jawaban</button>
+        </div>
+        <div class="rs-off" id="rsOff" hidden><b>Konfirmasi lewat link pribadi</b>Konfirmasi kehadiran tersedia melalui link undangan pribadi yang dikirim PIC DSO kamu.</div>
+      </div>
+    </div></div>
+  </section>
+
   <!-- 8. PIC AREA -->
   <section class="page" data-title="PIC Area">
     <div class="frame"><img class="leaf l" src="img/leaf.webp" alt="" aria-hidden="true"><img class="leaf r" src="img/leaf.webp" alt="" aria-hidden="true"><div class="fit">
@@ -779,11 +834,51 @@ h2 em{font-style:italic;color:var(--gold-hi);
   }
   dust.innerHTML=dh;
 
-  /* guest name from #Nama_Lengkap */
+  /* guest from #ID-Nama_Lengkap (or #Nama_Lengkap) */
+  var TRACK_URL='https://script.google.com/macros/s/AKfycbwRcdggToNOhRUHKh2WycWvFok_7faW81-SVmTpoLfGIx6nfHgMT35PhNiX-rlNy-EOPA/exec';
+  var GID='', GNAME='';
   try{
-    var h=decodeURIComponent((location.hash||'').slice(1)).replace(/[_~]+/g,' ').replace(/\s+/g,' ').trim();
-    if(h && h.length<60){ document.getElementById('guest').textContent=h; }
+    var h=decodeURIComponent((location.hash||'').slice(1));
+    var m=h.match(/^([A-Z]\d{2,3})-(.+)$/); if(m){GID=m[1]; h=m[2];}
+    h=h.replace(/[_~]+/g,' ').replace(/\s+/g,' ').trim();
+    if(h && h.length<60){ GNAME=h; document.getElementById('guest').textContent=h; }
   }catch(e){}
+  function track(o){
+    if(!TRACK_URL||!GID) return Promise.resolve(false);
+    o.id=GID; o.n=GNAME; var um=(navigator.userAgent||'').match(/\(([^)]*)\)/); o.ua=(um?um[1]:'').slice(0,110);
+    try{ return fetch(TRACK_URL,{method:'POST',mode:'no-cors',keepalive:true,headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(o)}).then(function(){return true},function(){return false}); }catch(e){ return Promise.resolve(false); }
+  }
+  (function(){ var k='kc-op-'+GID; try{ if(GID && !sessionStorage.getItem(k)){ sessionStorage.setItem(k,'1'); track({t:'open'}); } }catch(e){ track({t:'open'}); } })();
+
+  /* RSVP */
+  (function(){
+    var form=document.getElementById('rsForm'), done=document.getElementById('rsDone'), off=document.getElementById('rsOff');
+    var send=document.getElementById('rsSend'), note=document.getElementById('rsNote'), opts=[].slice.call(document.querySelectorAll('.opt')), pick='';
+    if(!GID){ form.hidden=true; off.hidden=false; return; }
+    document.getElementById('rsName').textContent=GNAME||'Kawan Coklat';
+    var key='kc-rsvp-'+GID;
+    function show(v){
+      form.style.display='none'; done.classList.add('on');
+      var first=GNAME||'Kawan Coklat';
+      if(v==='Siap Hadir'){ document.getElementById('rsDoneT').textContent='Sampai jumpa di Kudus, '+first+'!'; document.getElementById('rsDoneP').textContent='Konfirmasi Siap Hadir sudah tercatat. Info keberangkatan akan disampaikan PIC DSO kamu.'; }
+      else { document.getElementById('rsDoneT').textContent='Terima kasih, '+first+'.'; document.getElementById('rsDoneP').textContent='Konfirmasi Berhalangan sudah tercatat. PIC DSO kamu akan menindaklanjuti.'; }
+      fitAll();
+    }
+    try{ var sv=localStorage.getItem(key); if(sv) show(sv); }catch(e){}
+    opts.forEach(function(b){ b.addEventListener('click',function(){
+      pick=b.getAttribute('data-v'); opts.forEach(function(o){o.setAttribute('aria-pressed',o===b?'true':'false')});
+      note.classList.toggle('on',pick==='Berhalangan'); send.disabled=false; fitAll();
+    }); });
+    send.addEventListener('click',function(){
+      if(!pick) return; send.disabled=true; send.textContent='Mengirim...';
+      track({t:'rsvp',s:pick,c:pick==='Berhalangan'?note.value.trim():''}).then(function(ok){
+        send.textContent='Kirim Konfirmasi';
+        if(ok||!TRACK_URL){ try{localStorage.setItem(key,pick)}catch(e){} show(pick); }
+        else { send.disabled=false; say('Gagal mengirim, coba lagi ya'); }
+      });
+    });
+    document.getElementById('rsEdit').addEventListener('click',function(){ done.classList.remove('on'); form.style.display=''; send.disabled=!pick; fitAll(); });
+  })();
 
   /* toast + copy */
   var toast=document.getElementById('toast'), tt;
