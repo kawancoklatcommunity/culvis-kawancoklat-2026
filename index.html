@@ -841,7 +841,7 @@ h2 em{font-style:italic;color:var(--gold-hi);
     var h=decodeURIComponent((location.hash||'').slice(1));
     var m=h.match(/^([A-Z]\d{2,3})-(.+)$/); if(m){GID=m[1]; h=m[2];}
     h=h.replace(/[_~]+/g,' ').replace(/\s+/g,' ').trim();
-    if(h && h.length<60){ GNAME=h; document.getElementById('guest').textContent=h; }
+    if(h && h.length<60){ GNAME=h; GID=h; document.getElementById('guest').textContent=h; }
   }catch(e){}
   function track(o){
     if(!TRACK_URL||!GID) return Promise.resolve(false);
@@ -900,8 +900,7 @@ h2 em{font-style:italic;color:var(--gold-hi);
   var citarum=[
     ['Bogor','Kamaludin','0853-5152-1666','6285351521666'],
     ['Sub DSO<br>Cikarang','Muhammad Ma\'ruf','0812-9660-8862','6281296608862'],
-    ['Karawang','Dodi Permadi','0896-0826-9334','6289608269334'],
-    ['Karawang','Hermawan Edwin W.','0812-9035-0997','6281290350997']
+    ['Karawang','Dodi Permadi','0896-0826-9334','6289608269334']
   ];
   function renderPics(id,list){ document.getElementById(id).innerHTML=list.map(function(p,i){
     return '<div class="pic rv" style="--i:'+(4+i)+'"><span class="dso">'+p[0]+'</span><div class="who"><b>'+p[1]+'</b><span>'+(p[2]||'Nomor menyusul')+'</span></div>'+
