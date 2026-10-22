@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="only dark">
+<title>Kirim Undangan · Culvis Kawan Coklat 2026</title>
+<link rel="icon" type="image/png" href="img/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,600&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap">
+<style>
+:root{color-scheme:only dark;--gold:#deba6e;--gold-hi:#f4d896;--gold-lo:#a3814a;--cream:#f2e5cc;--muted:#bba381;--line:rgba(222,186,110,.34)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100%;background:#120804;color:var(--cream);font-family:'Plus Jakarta Sans',system-ui,sans-serif}
+body{background:radial-gradient(120% 60% at 50% 0%,#3a1f0e,rgba(58,31,14,0) 60%),#120804;padding:calc(env(safe-area-inset-top) + 18px) 18px calc(env(safe-area-inset-bottom) + 24px)}
+.wrap{max-width:440px;margin:0 auto;border:1px solid var(--line);border-radius:22px;padding:22px 18px 20px;background:rgba(30,15,7,.55);text-align:center}
+.eb{font:600 10px/1 'Plus Jakarta Sans';letter-spacing:.32em;text-transform:uppercase;color:var(--gold)}
+h1{font:500 30px/1.1 'Cormorant Garamond',serif;margin:10px 0 4px}
+.nm{font:italic 600 28px/1.15 'Cormorant Garamond',serif;color:var(--gold-hi);margin:4px 0 6px;overflow-wrap:anywhere}
+.ph{display:inline-block;margin-top:4px;padding:8px 14px;border-radius:999px;border:1px solid var(--line);font:600 14px/1 'Plus Jakarta Sans';letter-spacing:.04em;color:var(--cream);background:rgba(10,5,2,.5)}
+.ph small{display:block;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-lo);margin-bottom:5px}
+.gif{margin:16px auto 0;width:62%;max-width:220px;border-radius:14px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/5;background:#26150b}
+.gif img{width:100%;height:100%;object-fit:cover;display:block}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;margin-top:18px;padding:16px;border:0;border-radius:999px;background:linear-gradient(180deg,#f0d18f,#c99b4f);color:#2a1607;font:700 13px/1 'Plus Jakarta Sans';letter-spacing:.16em;text-transform:uppercase;cursor:pointer}
+.btn:disabled{opacity:.45}
+.btn svg{width:18px;height:18px}
+.alt{display:inline-block;margin-top:14px;font:700 10.5px/1 'Plus Jakarta Sans';letter-spacing:.14em;text-transform:uppercase;color:var(--gold-hi);border-bottom:1px solid var(--gold-lo);padding-bottom:3px;background:none;border-top:0;border-left:0;border-right:0;cursor:pointer}
+.steps{text-align:left;margin-top:18px;padding-top:16px;border-top:1px solid rgba(222,186,110,.16);font-size:12.5px;line-height:1.6;color:var(--muted)}
+.steps b{color:var(--cream)}
+.steps ol{padding-left:18px}
+.msg{margin-top:14px;font-size:12px;color:var(--gold-hi);min-height:18px}
+.err{color:#f4b49b}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <p class="eb">Kirim Undangan</p>
+  <h1>Cultural Visit 2026</h1>
+  <p class="nm" id="nm">—</p>
+  <div class="ph" id="phBox" hidden><small>Pilih kontak dengan nomor</small><span id="ph"></span></div>
+  <div class="gif"><img src="img/cover-share.gif" alt="Cover undangan" id="gifImg"></div>
+  <button class="btn" id="share" type="button" disabled>
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+    <span id="shareTxt">Menyiapkan GIF...</span>
+  </button>
+  <button class="alt" id="textOnly" type="button">Kirim teks saja (tanpa GIF)</button>
+  <p class="msg" id="msg" role="status"></p>
+  <div class="steps">
+    <ol>
+      <li>Tekan <b>Kirim via WhatsApp</b>, lalu pilih <b>WhatsApp</b>.</li>
+      <li>Pilih kontak peserta <b>sesuai nama dan nomor di atas</b>.</li>
+      <li>GIF dan pesan undangan terkirim jadi satu. Kalau teksnya tidak ikut, tahan kolom caption lalu <b>Paste</b>, karena pesannya sudah otomatis tersalin.</li>
+      <li>Kembali ke spreadsheet dan centang <b>Terkirim</b>.</li>
+    </ol>
+  </div>
+</main>
+<script>
+(function(){
+  var BASE='https://kawancoklatcommunity.github.io/culvis-kawancoklat-2026/';
+  var q={}; (location.hash||'').slice(1).split('&').forEach(function(kv){var i=kv.indexOf('=');if(i>0){try{q[kv.slice(0,i)]=decodeURIComponent(kv.slice(i+1))}catch(e){}}});
+  var slug=(q.n||'').replace(/[^A-Za-z0-9_.\-]/g,'');
+  var name=slug.replace(/_+/g,' ').trim();
+  var phone=(q.p||'').replace(/[^0-9]/g,'').replace(/^0/,'62');
+  var msgEl=document.getElementById('msg'), btn=document.getElementById('share'), txt=document.getElementById('shareTxt');
+  if(!name){ document.getElementById('nm').textContent='Nama tidak ditemukan'; msgEl.textContent='Buka halaman ini dari tombol Kirim di spreadsheet tracking.'; msgEl.className='msg err'; txt.textContent='Tidak bisa dikirim'; return; }
+  document.getElementById('nm').textContent=name;
+  if(phone){ document.getElementById('phBox').hidden=false; document.getElementById('ph').textContent='+'+phone.replace(/^(\d{2})(\d{3})(\d{4})(\d+)$/,'$1 $2-$3-$4'); }
+  var link=BASE+'#'+slug;
+  var text='Halo *'+name+'* 👋\n\n✨ *CULTURAL VISIT KAWAN COKLAT COMMUNITY 2026* ✨\n_Kudus Kota Kretek_\n\nSelamat! Kamu terpilih menjadi salah satu Kawan Coklat yang akan berangkat ke *Kudus Kota Kretek* bersama Kawan Coklat Community 🎉\n\n📅 10–12 November 2026\n📍 Semarang & Kudus\n\nJadwal, dresscode, dan info lengkapnya ada di undangan digital kamu ya 👇\n'+link+'\n\nBanyak keseruan dan kejutan yang sudah menunggu di sana 🔥\n\nJangan lupa isi konfirmasi kehadiran di dalam undangan 🙏\n\nSo, jangan sampai kelewatan ya.\nSampai jumpa di Kudus Kota Kretek! 🙌';
+
+  function copyText(){
+    try{ if(navigator.clipboard&&navigator.clipboard.writeText){ return navigator.clipboard.writeText(text).catch(function(){}); } }catch(e){}
+    try{ var ta=document.createElement('textarea'); ta.value=text; ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta);}catch(e){}
+    return Promise.resolve();
+  }
+  function textOnly(){
+    var url=phone?('https://wa.me/'+phone+'?text='+encodeURIComponent(text)):('https://wa.me/?text='+encodeURIComponent(text));
+    location.href=url;
+  }
+  document.getElementById('textOnly').addEventListener('click',textOnly);
+
+  var file=null;
+  fetch('img/cover-share.gif').then(function(r){ if(!r.ok) throw 0; return r.blob(); }).then(function(b){
+    file=new File([b],'Undangan_Culvis_KaCo_2026.gif',{type:'image/gif'});
+    if(navigator.canShare && navigator.canShare({files:[file],text:text})){ btn.disabled=false; txt.textContent='Kirim via WhatsApp'; }
+    else { txt.textContent='HP ini belum mendukung'; msgEl.textContent='Browser ini tidak bisa mengirim GIF. Buka dari Chrome di HP, atau pakai "Kirim teks saja".'; msgEl.className='msg err'; }
+  }).catch(function(){ txt.textContent='GIF gagal dimuat'; msgEl.textContent='Periksa koneksi lalu muat ulang halaman ini.'; msgEl.className='msg err'; });
+
+  btn.addEventListener('click',function(){
+    if(!file) return;
+    copyText();
+    navigator.share({files:[file],text:text}).then(function(){
+      msgEl.className='msg'; msgEl.textContent='Terkirim? Jangan lupa centang Terkirim di spreadsheet ✓';
+    }).catch(function(e){
+      if(e && e.name==='AbortError') return;
+      msgEl.className='msg err'; msgEl.textContent='Gagal membuka menu kirim. Coba lagi, atau pakai "Kirim teks saja".';
+    });
+  });
+})();
+</script>
+</body>
+</html>
