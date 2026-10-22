@@ -1,0 +1,930 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Culvis Kawan Coklat 2026</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Undangan Cultural Visit Kawan Coklat Community 2026, Kudus Kota Kretek, 10–12 November 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Fraunces:ital,opsz,wght@0,9..144,500..700;1,9..144,400..600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#110804; --bg-3:#26150b;
+  --gold:#deba6e; --gold-hi:#f4d896; --gold-lo:#a3814a;
+  --cream:#f2e5cc; --text:#e9dcc4; --muted:#bba381; --faint:rgba(222,186,110,.16);
+  --line:rgba(222,186,110,.34); --card:rgba(255,236,200,.04);
+  --ember:#c8572c;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --display:'Fraunces',Georgia,serif;
+  --sans:'Plus Jakarta Sans',system-ui,sans-serif;
+  --ease:cubic-bezier(.2,.7,.1,1);
+  --side:max(14px, env(safe-area-inset-left), env(safe-area-inset-right));
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow:hidden}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:inherit;text-decoration:none}
+
+/* ---------- atmosphere ---------- */
+.sky{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:#100703}
+.sky .wv{position:absolute;inset:-8% -12%;background:url(img/bg-waves.webp) center/cover;opacity:.9;animation:drift 46s ease-in-out infinite alternate}
+@keyframes drift{from{transform:translate3d(-3%,-2%,0) scale(1.02)}to{transform:translate3d(3%,2%,0) scale(1.08)}}
+.sky::after{content:"";position:absolute;inset:0;
+  background:radial-gradient(80% 55% at 50% 45%,rgba(16,7,3,.72),rgba(16,7,3,.35) 70%,rgba(16,7,3,.15)),
+  linear-gradient(180deg,rgba(16,7,3,.35),rgba(16,7,3,.1) 40%,rgba(16,7,3,.55))}
+.dust{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.dust i{position:absolute;bottom:-10px;width:var(--z,3px);height:var(--z,3px);border-radius:50%;background:radial-gradient(circle,#ffe7ae,rgba(255,215,140,0) 70%);opacity:0;animation:rise var(--t,14s) linear infinite;animation-delay:var(--d,0s)}
+@keyframes rise{0%{transform:translate(0,0);opacity:0}10%{opacity:.9}60%{opacity:.6}100%{transform:translate(var(--x,20px),-105vh);opacity:0}}
+
+/* ---------- deck ---------- */
+.deck{position:fixed;inset:0;z-index:1;overflow-y:auto;overflow-x:hidden;scroll-snap-type:y mandatory;overscroll-behavior:contain;scrollbar-width:none}
+.deck::-webkit-scrollbar{display:none}
+.page{position:relative;height:100%;scroll-snap-align:start;scroll-snap-stop:always;overflow:hidden;
+  padding:calc(env(safe-area-inset-top) + 12px) var(--side) calc(env(safe-area-inset-bottom) + 12px)}
+.frame{position:relative;height:100%;max-width:480px;margin:0 auto;border:1px solid var(--line);border-radius:22px;
+  padding:26px 20px 22px;overflow:hidden;display:flex;flex-direction:column;justify-content:center;
+  background:linear-gradient(180deg,rgba(30,15,7,.55),rgba(20,10,5,.35) 50%,rgba(30,15,7,.55));
+  box-shadow:inset 0 0 0 5px rgba(16,7,3,.35), inset 0 0 0 6px rgba(222,186,110,.12), 0 30px 60px -30px rgba(0,0,0,.8)}
+.frame::before,.frame::after{content:"";position:absolute;width:30px;height:30px;border:1.5px solid var(--gold);opacity:.7;pointer-events:none;z-index:3}
+.frame::before{top:10px;left:10px;border-right:0;border-bottom:0;border-radius:14px 0 0 0}
+.frame::after{bottom:10px;right:10px;border-left:0;border-top:0;border-radius:0 0 14px 0}
+.fit{position:relative;z-index:2;width:100%;transform:scale(var(--s,1));transform-origin:top center;margin-bottom:var(--mb,0px)}
+.leaf{position:absolute;z-index:1;bottom:-6px;width:96px;opacity:.38;pointer-events:none;transform-origin:bottom left;animation:sway 7s ease-in-out infinite}
+.leaf.l{left:-14px}
+.leaf.r{right:-14px;transform:scaleX(-1);transform-origin:bottom center;animation-name:swayR}
+@keyframes sway{50%{transform:rotate(-3deg)}}
+@keyframes swayR{0%,100%{transform:scaleX(-1)}50%{transform:scaleX(-1) rotate(-3deg)}}
+.ring{position:absolute;z-index:0;width:520px;height:520px;left:50%;top:50%;margin:-260px 0 0 -260px;opacity:.07;pointer-events:none;animation:spin 120s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ---------- type ---------- */
+.eyebrow{display:flex;align-items:center;justify-content:center;gap:10px;font:600 10.5px/1 var(--sans);letter-spacing:.34em;text-transform:uppercase;color:var(--gold)}
+.eyebrow::before,.eyebrow::after{content:"";width:22px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.eyebrow::after{transform:scaleX(-1)}
+h2{font:500 clamp(30px,8.4vw,38px)/1.04 var(--serif);text-align:center;color:var(--cream);margin:12px 0 4px;letter-spacing:-.005em}
+h2 em{font-style:italic;color:var(--gold-hi);
+  background:linear-gradient(100deg,var(--gold) 20%,#fff1cf 45%,var(--gold) 70%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shine 6s linear infinite}
+@keyframes shine{from{background-position:120% 0}to{background-position:-100% 0}}
+.orn{display:flex;align-items:center;justify-content:center;gap:8px;margin:8px auto 0}
+.orn i{display:block;height:1px;width:0;background:linear-gradient(90deg,transparent,var(--gold));transition:width 1.2s var(--ease) .5s}
+.orn i:last-child{transform:scaleX(-1)}
+.orn b{width:6px;height:6px;border:1px solid var(--gold);transform:rotate(45deg);animation:diam 6s ease-in-out infinite}
+@keyframes diam{50%{transform:rotate(225deg);background:rgba(222,186,110,.5)}}
+.page.in .orn i,.gate.in .orn i{width:46px}
+.lead{text-align:center;color:var(--muted);font-size:13px;line-height:1.55;max-width:40ch;margin:8px auto 0}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(16px);filter:blur(4px);transition:opacity .9s var(--ease),transform .9s var(--ease),filter .9s var(--ease);transition-delay:calc(var(--i,0) * 90ms + 80ms)}
+.page.in .rv,.gate.in .rv{opacity:1;transform:none;filter:none}
+
+/* ---------- cover ---------- */
+.gate{position:fixed;inset:0;z-index:20;display:flex;flex-direction:column;background:#140904;
+  padding:calc(env(safe-area-inset-top) + 12px) var(--side) calc(env(safe-area-inset-bottom) + 12px);
+  transition:opacity 1s var(--ease) .55s, visibility 0s linear 1.6s}
+.gate .gbg{position:absolute;inset:-6%;background:url(img/cover-waves.webp) center/cover;animation:drift 40s ease-in-out infinite alternate}
+.gate .gbg::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 45% at 50% 42%,rgba(18,8,3,.78),rgba(18,8,3,.35) 75%,rgba(18,8,3,.2)),linear-gradient(180deg,rgba(18,8,3,.55),transparent 30%,transparent 70%,rgba(18,8,3,.6))}
+.gate .frame{z-index:2;text-align:center;padding:30px 18px 0;background:rgba(18,8,3,.18)}
+.gate .fit{display:flex;flex-direction:column;justify-content:space-between;gap:14px;padding-bottom:118px}
+.gate.open{opacity:0;visibility:hidden;pointer-events:none}
+.gate.open .frame{transform:scale(1.04);filter:blur(6px);transition:transform 1.4s var(--ease),filter 1.4s var(--ease)}
+.veil{position:absolute;inset:0;z-index:5;pointer-events:none;display:flex}
+.veil span{flex:1;background:linear-gradient(90deg,#0c0502,#1d0f07);transform:scaleX(0);transition:transform .7s var(--ease)}
+.veil span:first-child{transform-origin:left}
+.veil span:last-child{transform-origin:right;background:linear-gradient(270deg,#0c0502,#1d0f07)}
+.cv-tag{font:600 10px/1 var(--sans);letter-spacing:.42em;color:var(--gold);text-transform:uppercase}
+.lock{display:grid;grid-template-columns:43% 57%;align-items:center;width:100%;max-width:360px;margin:6px auto 0}
+.lk-cv{width:96%;justify-self:end;filter:drop-shadow(0 4px 10px rgba(0,0,0,.6));animation:float 6s ease-in-out infinite}
+.lk-kc{position:relative;aspect-ratio:1;display:grid;place-items:center}
+.lk-ring{position:absolute;inset:0;width:100%;height:100%;animation:spin 70s linear infinite;filter:drop-shadow(0 0 10px rgba(0,0,0,.5))}
+.lk-halo{position:absolute;inset:18%;border-radius:50%;background:radial-gradient(circle,rgba(20,9,4,.92) 40%,rgba(20,9,4,0) 72%)}
+.lk-logo{position:relative;width:80%;filter:drop-shadow(0 6px 14px rgba(0,0,0,.65));animation:float 6s ease-in-out infinite .6s}
+@keyframes float{50%{transform:translateY(-4px)}}
+.cv-place{font:500 clamp(40px,12vw,52px)/1 var(--serif);letter-spacing:.22em;color:var(--gold-hi);margin-left:.22em;text-shadow:0 2px 18px rgba(0,0,0,.6)}
+.cv-date{margin-top:8px;font:600 12px/1.4 var(--sans);letter-spacing:.24em;color:var(--cream);text-transform:uppercase}
+.cv-to p{font:500 11px/1.5 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.cv-to .nm{font:italic 600 clamp(26px,7.4vw,32px)/1.1 var(--serif);color:var(--gold-hi);letter-spacing:0;text-transform:none;margin:6px 0 2px;overflow-wrap:anywhere;text-shadow:0 2px 14px rgba(0,0,0,.6)}
+.btn-open{margin-top:14px;display:inline-flex;align-items:center;gap:10px;padding:13px 26px;border-radius:999px;
+  background:linear-gradient(180deg,#f0d18f,#c99b4f);color:#2a1607;font:700 12px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;
+  box-shadow:0 10px 30px -10px rgba(240,200,120,.6), inset 0 1px 0 rgba(255,255,255,.5);position:relative;overflow:hidden;animation:breathe 3s ease-in-out infinite}
+@keyframes breathe{50%{box-shadow:0 10px 36px -6px rgba(240,200,120,.8), inset 0 1px 0 rgba(255,255,255,.5)}}
+.btn-open::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);transform:translateX(-120%);animation:sweep 3.6s ease-in-out infinite 1.2s}
+@keyframes sweep{0%,60%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+.btn-open svg{width:16px;height:16px}
+.cv-base{position:absolute;left:0;right:0;bottom:0;height:120px;z-index:1;pointer-events:none}
+.cv-base .tp{position:absolute;left:50%;bottom:-2px;width:52%;max-width:240px;transform:translateX(-50%);filter:drop-shadow(0 -6px 18px rgba(255,220,150,.15));animation:glowT 5s ease-in-out infinite}
+@keyframes glowT{50%{filter:drop-shadow(0 -6px 26px rgba(255,220,150,.35))}}
+.cv-base .lf{position:absolute;bottom:-8px;width:34%;max-width:150px;animation:sway 7s ease-in-out infinite;transform-origin:bottom left}
+.cv-base .lf.l{left:-10px}
+.cv-base .lf.r{right:-10px;transform:scaleX(-1);transform-origin:bottom center;animation-name:swayR}
+
+/* ---------- nav ---------- */
+.dots{position:fixed;z-index:10;right:max(4px,env(safe-area-inset-right));top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:8px}
+.dots button{width:5px;height:5px;border-radius:50%;background:rgba(222,186,110,.35);transition:all .4s var(--ease)}
+.dots button[aria-current="true"]{height:18px;border-radius:4px;background:var(--gold)}
+
+/* ---------- photo ---------- */
+.photo{border-radius:14px;overflow:hidden;border:1px solid var(--line);position:relative;background:var(--bg-3)}
+.photo img{width:100%;height:100%;object-fit:cover}
+.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(17,8,4,.55));pointer-events:none}
+.kb img{animation:kb 18s ease-in-out infinite alternate}
+@keyframes kb{to{transform:scale(1.09) translateY(-2%)}}
+.photo .sheen{position:absolute;inset:0;z-index:2;background:linear-gradient(115deg,transparent 35%,rgba(255,240,200,.22) 50%,transparent 65%);transform:translateX(-120%);animation:sweep 7s ease-in-out infinite 2s}
+
+/* ---------- pembuka ---------- */
+.op-photo{aspect-ratio:16/10;margin:14px 0}
+.story p{font-size:13.5px;line-height:1.62;color:var(--text);text-align:center;margin:0 auto 9px;max-width:36ch}
+.story p b{color:var(--gold-hi);font-weight:600}
+.see{text-align:center;margin-top:6px}
+.see p{font:italic 500 21px/1.2 var(--serif);color:var(--cream)}
+.see img{width:118px;margin:10px auto 0;filter:drop-shadow(0 6px 16px rgba(0,0,0,.5));animation:float 6s ease-in-out infinite}
+
+/* ---------- ringkasan ---------- */
+.sum{margin-top:16px;border-top:1px solid var(--faint)}
+.sum-row{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:center;padding:13px 2px;border-bottom:1px solid var(--faint)}
+.ic{position:relative;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:var(--gold);background:radial-gradient(circle at 30% 25%,rgba(244,216,150,.16),rgba(20,10,5,.6) 70%)}
+.ic::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px dashed rgba(222,186,110,.35);animation:spin 18s linear infinite}
+.ic svg{width:19px;height:19px}
+.sum-row small{display:block;font:600 10px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--gold-lo);margin-bottom:6px}
+.sum-row b{display:block;font:500 19px/1.2 var(--serif);color:var(--cream)}
+.sum-row span{display:block;font-size:12px;color:var(--muted);margin-top:3px}
+.areas{margin-top:18px;text-align:center}
+.areas p{font:italic 500 17px/1.3 var(--serif);color:var(--cream);margin-bottom:10px}
+.areas p em{color:var(--gold-hi)}
+.chips{display:flex;justify-content:center;flex-wrap:wrap;gap:8px}
+.chip{padding:8px 14px;border-radius:999px;border:1px solid var(--line);font:600 11px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--cream);background:rgba(20,10,5,.5)}
+
+/* ---------- tabs ---------- */
+.tabs{display:flex;gap:4px;padding:4px;border:1px solid var(--line);border-radius:999px;margin:14px auto 0;width:max-content;max-width:100%;background:rgba(10,5,2,.45)}
+.tabs button{padding:9px 16px;border-radius:999px;font:600 11px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);transition:all .35s var(--ease);white-space:nowrap}
+.tabs button[aria-selected="true"]{background:linear-gradient(180deg,#ecca86,#c49449);color:#2a1607}
+.panel{display:none}
+.panel.on{display:block;animation:pin .6s var(--ease)}
+@keyframes pin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* ---------- jadwal ---------- */
+.day-t{text-align:center;margin:14px 0 12px}
+.day-t b{display:block;font:italic 500 22px/1.1 var(--serif);color:var(--cream)}
+.day-t span{font:600 10px/1 var(--sans);letter-spacing:.26em;text-transform:uppercase;color:var(--gold-lo)}
+.rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 20px 6px;margin:0 -20px;scrollbar-width:none;overscroll-behavior-x:contain}
+.rail::-webkit-scrollbar{display:none}
+.stop{flex:0 0 76%;scroll-snap-align:center;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:linear-gradient(180deg,rgba(40,20,9,.85),rgba(22,11,5,.85));display:flex;flex-direction:column;transition:transform .5s var(--ease),border-color .5s}
+.stop.cur{border-color:rgba(236,202,134,.6)}
+.stop figure{position:relative;aspect-ratio:4/3;overflow:hidden;display:grid;place-items:center;background:radial-gradient(85% 80% at 50% 38%,#43250f,#1b0d06 78%)}
+.stop figure::before{content:"";position:absolute;inset:10px;border:1px solid var(--faint);border-radius:10px;pointer-events:none}
+.stop figure::after{content:"";position:absolute;left:50%;top:48%;width:70%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(244,200,120,.16),transparent 65%);animation:pulse 5s ease-in-out infinite;pointer-events:none}
+.stop .bd{padding:12px 14px 14px}
+.when{display:inline-block;font:600 9.5px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:7px}
+.stop h4{font:600 18px/1.15 var(--serif);color:var(--cream)}
+.stop p{font-size:12px;line-height:1.5;color:var(--muted);margin-top:5px}
+.prog{display:flex;justify-content:center;gap:6px;margin-top:12px}
+.prog i{width:5px;height:5px;border-radius:50%;background:rgba(222,186,110,.3);transition:all .35s var(--ease)}
+.prog i.on{width:18px;border-radius:3px;background:var(--gold)}
+.swipe{text-align:center;font:600 9.5px/1 var(--sans);letter-spacing:.26em;color:var(--gold-lo);text-transform:uppercase;margin-top:10px}
+.swipe span{display:inline-block;animation:nudge 1.8s ease-in-out infinite}
+@keyframes nudge{50%{transform:translateX(5px)}}
+
+/* icon illustrations */
+.ico{position:relative;z-index:1;width:88%;height:88%;color:var(--gold);overflow:visible}
+.ico .L :is(path,rect,circle,ellipse){fill:none;stroke:currentColor;stroke-width:1.35;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1 1;stroke-dashoffset:1;transition:stroke-dashoffset 2.2s var(--ease)}
+.ico .F :is(path,rect,circle,ellipse){fill:currentColor;opacity:0;transition:opacity 1.4s ease 1s}
+.ico .F .e{fill:var(--ember)}
+.ico .F .c{fill:var(--cream)}
+.ico .F .road,.ico .F .spin ellipse{fill:none;stroke:currentColor}
+.ico .tx{fill:var(--gold-hi);font-family:var(--sans);opacity:0;transition:opacity 1s ease 1.4s}
+.seen .ico .L :is(path,rect,circle,ellipse){stroke-dashoffset:0}
+.seen .ico .F :is(path,rect,circle,ellipse){opacity:var(--o,.25)}
+.seen .ico .tx{opacity:1}
+.ico .flag{transform-box:fill-box;transform-origin:left center;animation:wave 2.2s ease-in-out infinite}
+@keyframes wave{50%{transform:skewY(-8deg) scaleX(.9)}}
+.ico .flame{transform-box:fill-box;transform-origin:center bottom;animation:flick 1.5s ease-in-out infinite}
+@keyframes flick{25%{transform:scale(.92,1.08) rotate(-3deg)}60%{transform:scale(1.06,.94) rotate(2deg)}}
+.ico .glow{animation:pulse 3.4s ease-in-out infinite}
+@keyframes pulse{50%{filter:brightness(1.5);opacity:.55}}
+.ico .sway{transform-box:fill-box;transform-origin:top center;animation:lan 3s ease-in-out infinite}
+@keyframes lan{50%{transform:rotate(7deg)}}
+.ico .spin{transform-box:fill-box;transform-origin:center;animation:globe 5s linear infinite}
+@keyframes globe{0%{transform:scaleX(1)}50%{transform:scaleX(-1)}100%{transform:scaleX(1)}}
+.ico .road{stroke-dasharray:8 7;animation:road .9s linear infinite}
+@keyframes road{to{stroke-dashoffset:-15}}
+.ico .shim{animation:shimmer 3.6s ease-in-out infinite}
+@keyframes shimmer{50%{filter:brightness(1.7)}}
+.ico .tw{animation:tw 2.6s ease-in-out infinite}
+@keyframes tw{50%{opacity:.1}}
+
+/* ---------- akomodasi ---------- */
+.mosaic{display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:1fr 1fr;gap:8px;aspect-ratio:16/11;margin-top:16px}
+.mosaic .photo:first-child{grid-row:span 2}
+.addr{display:flex;gap:12px;align-items:flex-start;margin-top:16px}
+.addr .ic{flex:0 0 44px}
+.addr small{display:block;font:600 10px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--gold-lo);margin:4px 0 6px}
+.addr p{font-size:13px;line-height:1.5;color:var(--text)}
+.ci{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.ci div{border:1px solid var(--faint);border-radius:12px;padding:10px 12px;background:rgba(20,10,5,.55)}
+.ci small{display:block;font:600 9.5px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--gold-lo)}
+.ci b{display:block;font:500 16px/1.25 var(--serif);color:var(--cream);margin-top:5px}
+.btn{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:9px;margin-top:14px;padding:13px;border-radius:999px;border:1px solid var(--gold);color:var(--gold-hi);font:700 11.5px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;background:rgba(20,10,5,.5)}
+.btn::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,230,170,.22) 50%,transparent 70%);transform:translateX(-120%);animation:sweep 4.5s ease-in-out infinite 1.5s}
+.btn svg{width:16px;height:16px}
+
+/* ---------- dresscode ---------- */
+.dress-img{position:relative;overflow:hidden;margin-top:16px;border-radius:16px;background:#fbf8f3;aspect-ratio:2/1.05;display:grid;place-items:center;border:1px solid var(--line)}
+.dress-img img{width:100%;height:100%;object-fit:contain;animation:float 5s ease-in-out infinite}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.duo figure{border-radius:16px;overflow:hidden;border:1px solid var(--line);aspect-ratio:2/3;background:#e8e3da;position:relative}
+.duo img{width:100%;height:100%;object-fit:cover;animation:kb 14s ease-in-out infinite alternate}
+.duo figcaption{position:absolute;z-index:3;left:8px;bottom:8px;padding:6px 10px;border-radius:999px;background:rgba(17,8,4,.8);font:600 9.5px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--gold-hi)}
+.dress-t{text-align:center;margin-top:14px}
+.dress-t b{display:block;font:600 21px/1.15 var(--serif);color:var(--cream)}
+.dress-t p{font-size:12.5px;color:var(--muted);margin-top:6px;line-height:1.5}
+.dress-t .chips{margin-top:10px}
+.dress-t .chip{font-size:10px;padding:7px 12px}
+
+/* ---------- aturan ---------- */
+.rules{list-style:none;margin-top:12px}
+.rules li{display:grid;grid-template-columns:28px 1fr;gap:11px;padding:9px 0;border-bottom:1px solid var(--faint);align-items:center}
+.rules li:last-child{border-bottom:0}
+.mk{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);color:var(--gold);background:radial-gradient(circle at 35% 30%,rgba(244,216,150,.18),rgba(20,10,5,.6) 70%)}
+.mk svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;display:block}
+.mk svg path{stroke-dasharray:1 1;stroke-dashoffset:1;transition:stroke-dashoffset .7s var(--ease);transition-delay:calc(var(--k,0) * 110ms + .5s)}
+.page.in .panel.on .mk svg path{stroke-dashoffset:0}
+.dont .mk{color:#ef9a7c;border-color:rgba(239,154,124,.45);background:radial-gradient(circle at 35% 30%,rgba(239,154,124,.18),rgba(20,10,5,.6) 70%)}
+.rules b{display:block;font:600 13px/1.3 var(--sans);color:var(--cream)}
+.rules span.d{display:block;font-size:11.5px;line-height:1.45;color:var(--muted);margin-top:2px}
+
+/* ---------- countdown ---------- */
+.cd-wrap{position:relative;width:min(62%,230px);aspect-ratio:1;margin:12px auto 0;display:grid;place-items:center}
+.cd-orbit{position:absolute;inset:0;animation:spin 40s linear infinite}
+.cd-orbit circle{fill:none;stroke:var(--gold)}
+.cd-orbit .o2{animation:spin 26s linear infinite reverse;transform-origin:center}
+.cd-logo{position:relative;width:76%;filter:drop-shadow(0 10px 26px rgba(0,0,0,.6));animation:float 6s ease-in-out infinite}
+.clock{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:18px}
+.clock div{border:1px solid var(--line);border-radius:14px;padding:14px 4px 11px;text-align:center;background:linear-gradient(180deg,rgba(60,32,14,.7),rgba(22,11,5,.7));overflow:hidden}
+.clock b{display:block;font:500 34px/1 var(--display);color:var(--gold-hi);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.clock b.tick{animation:tick .5s var(--ease)}
+@keyframes tick{from{transform:translateY(-40%);opacity:0}to{transform:none;opacity:1}}
+.clock small{display:block;margin-top:7px;font:600 9px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.ready{text-align:center;margin-top:18px;font:italic 500 30px/1 var(--serif);color:var(--cream)}
+
+/* ---------- kontak ---------- */
+.pics{margin-top:14px}
+.pic{display:flex;align-items:center;gap:11px;padding:8px 10px 8px 8px;border:1px solid var(--faint);border-radius:12px;background:rgba(20,10,5,.6);margin-bottom:7px}
+.dso{flex:0 0 66px;height:38px;border-radius:9px;display:grid;place-items:center;text-align:center;border:1px solid var(--line);font:700 8.5px/1.25 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--gold-hi);background:linear-gradient(180deg,rgba(236,202,134,.16),rgba(236,202,134,.04))}
+.who{flex:1;min-width:0}
+.who b{display:block;font:600 13.5px/1.2 var(--sans);color:var(--cream)}
+.who span{display:block;font-size:11.5px;color:var(--muted);margin-top:2px;font-variant-numeric:tabular-nums}
+.wa{flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:999px;background:linear-gradient(180deg,#ecca86,#c49449);color:#2a1607;font:700 10px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.wa svg{width:13px;height:13px}
+.soon{text-align:center;padding:26px 12px;border:1px dashed var(--line);border-radius:14px;color:var(--muted);font-size:12.5px;line-height:1.55;margin-top:14px;background:rgba(20,10,5,.45)}
+.soon b{display:block;font:italic 500 19px/1.2 var(--serif);color:var(--cream);margin-bottom:4px}
+.sos{margin-top:14px}
+.sos .row{display:flex;align-items:center;gap:11px;padding:8px 10px 8px 8px;border:1px solid var(--faint);border-radius:12px;background:rgba(20,10,5,.6);margin-bottom:7px}
+.sos .si{flex:0 0 38px;height:38px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);color:var(--gold)}
+.sos .si svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.sos .row.hot .si{color:#ef9a7c;border-color:rgba(239,154,124,.45);animation:sosp 2.4s ease-in-out infinite}
+@keyframes sosp{50%{box-shadow:0 0 0 5px rgba(239,154,124,.12)}}
+.sos .who small{display:block;font:600 9px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gold-lo);margin-bottom:4px}
+.cp{flex:0 0 auto;padding:8px 12px;border-radius:999px;border:1px solid var(--gold);color:var(--gold-hi);font:700 10px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.short{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:4px}
+.short button{border:1px solid rgba(239,154,124,.4);border-radius:12px;padding:10px 4px 9px;background:rgba(40,14,6,.55);text-align:center}
+.short b{display:block;font:500 24px/1 var(--display);color:#f4b49b}
+.short span{display:block;margin-top:5px;font:600 9px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.foot{text-align:center;margin-top:14px;padding-top:14px;border-top:1px solid var(--faint)}
+.foot img{width:min(40%,150px);margin:0 auto;animation:float 6s ease-in-out infinite}
+.foot p{margin-top:10px;font:600 9px/1.6 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--gold-lo)}
+.toast{position:fixed;z-index:30;left:50%;bottom:calc(env(safe-area-inset-bottom) + 28px);transform:translate(-50%,20px);opacity:0;padding:10px 16px;border-radius:999px;background:#f0d18f;color:#2a1607;font:700 11px/1 var(--sans);letter-spacing:.12em;transition:all .4s var(--ease);pointer-events:none}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none;filter:none}
+  .ico .L :is(path,rect,circle,ellipse),.mk svg path{stroke-dashoffset:0}
+  .ico .F :is(path,rect,circle,ellipse){opacity:var(--o,.25)}
+  .ico .tx{opacity:1}
+}
+</style>
+<meta name="theme-color" content="#140904">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kawan Coklat Community">
+<meta property="og:title" content="Undangan Cultural Visit Kawan Coklat Community 2026">
+<meta property="og:description" content="Kudus Kota Kretek · 10–12 November 2026. Buka undanganmu di sini.">
+<meta property="og:image" content="https://richardchandra86.github.io/culvis-kawancoklat-2026/img/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://richardchandra86.github.io/culvis-kawancoklat-2026/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="img/icon.png">
+<link rel="apple-touch-icon" href="img/icon.png">
+</head>
+<body>
+
+<div class="sky" aria-hidden="true"><div class="wv"></div></div>
+<div class="dust" id="dust" aria-hidden="true"></div>
+
+<!-- ================= COVER ================= -->
+<div class="gate" id="gate" role="dialog" aria-modal="true" aria-label="Sampul undangan">
+  <div class="gbg" aria-hidden="true"></div>
+  <div class="frame" data-fill><div class="fit">
+    <div>
+      <div class="lock rv" style="--i:1">
+        <img class="lk-cv" src="img/cv-text.webp" alt="Cultural Visit">
+        <div class="lk-kc">
+          <img class="lk-ring" src="img/mandala.webp" alt="" aria-hidden="true">
+          <span class="lk-halo" aria-hidden="true"></span>
+          <img class="lk-logo" src="img/kc.webp" alt="Kawan Coklat Community">
+        </div>
+      </div>
+      <p class="cv-place rv" style="--i:2">KUDUS</p>
+      <p class="cv-date rv" style="--i:3">10 – 12 November 2026</p>
+      <div class="orn rv" style="--i:3"><i></i><b></b><i></i></div>
+    </div>
+    <div class="cv-to rv" style="--i:4">
+      <p>Kepada Kawan Coklat</p>
+      <p class="nm" id="guest">Kawan Coklat Community</p>
+      <button class="btn-open" id="openBtn" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9 6 9-6"/><path d="M3 9v10h18V9"/><path d="M3 9l9-6 9 6"/></svg>
+        Buka Undangan
+      </button>
+    </div>
+  </div>
+  <div class="cv-base" aria-hidden="true">
+    <img class="lf l" src="img/leaf.webp" alt=""><img class="lf r" src="img/leaf.webp" alt="">
+    <img class="tp" src="img/temple.webp" alt="">
+  </div>
+  </div>
+  <div class="veil" aria-hidden="true"><span></span><span></span></div>
+</div>
+
+<nav class="dots" id="dots" aria-label="Halaman"></nav>
+
+<main class="deck" id="deck">
+
+  <!-- 1. PEMBUKA -->
+  <section class="page" data-title="Pembuka">
+    <div class="frame"><img class="leaf l" src="img/leaf.webp" alt="" aria-hidden="true"><img class="leaf r" src="img/leaf.webp" alt="" aria-hidden="true"><div class="fit">
+      <p class="eyebrow rv" style="--i:0">Sugeng Rawuh</p>
+      <h2 class="rv" style="--i:1">Momen <em>Extra</em> untuk<br>Kawan Coklat</h2>
+      <div class="photo kb op-photo rv" style="--i:2"><img src="img/kudus.webp" alt="Gerbang Kudus Kota Kretek saat senja"><span class="sheen"></span></div>
+      <div class="story">
+        <p class="rv" style="--i:3">Kudus tumbuh dari nilai dan tradisi. Dari tanah ini lahir <b>kretek</b>, karya yang menyatukan tangan, hati, dan rasa, dan Djarum menjadi bagian dari perjalanan panjang itu.</p>
+        <p class="rv" style="--i:4">Cultural Visit adalah ruang bagi Kawan Coklat Community untuk melihat lebih dekat akar semangat yang menyalakan setiap langkah kita.</p>
+      </div>
+      <div class="see rv" style="--i:5">
+        <p>Sampai jumpa di Kota Kretek</p>
+        <img src="img/kc.webp" alt="Kawan Coklat Community">
+      </div>
+    </div></div>
+  </section>
+
+  <!-- 2. RINGKASAN -->
+  <section class="page" data-title="Ringkasan">
+    <div class="frame"><img class="leaf l" src="img/leaf.webp" alt="" aria-hidden="true"><img class="leaf r" src="img/leaf.webp" alt="" aria-hidden="true"><div class="fit">
+      <p class="eyebrow rv" style="--i:0">Catat Tanggalnya</p>
+      <h2 class="rv" style="--i:1">Tiga hari,<br><em>dua kota</em></h2>
+      <div class="orn rv" style="--i:1"><i></i><b></b><i></i></div>
+      <div class="sum">
+        <div class="sum-row rv" style="--i:2"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div><div><small>Tanggal</small><b>10 – 12 November 2026</b><span>Selasa sampai Kamis</span></div></div>
+        <div class="sum-row rv" style="--i:3"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></div><div><small>Tujuan</small><b>Semarang &amp; Kudus</b><span>Jawa Tengah</span></div></div>
+        <div class="sum-row rv" style="--i:4"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="15" rx="3"/><path d="M4 11h16M8 21v-3M16 21v-3"/><circle cx="8" cy="14.5" r=".6"/><circle cx="16" cy="14.5" r=".6"/></svg></div><div><small>Transportasi</small><b>Bus rombongan</b><span>Berangkat dan pulang bersama</span></div></div>
+        <div class="sum-row rv" style="--i:5"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V8l9-5 9 5v13"/><path d="M9 21v-6h6v6"/></svg></div><div><small>Menginap</small><b>Khas Hotel Semarang</b><span>2 malam</span></div></div>
+      </div>
+      <div class="areas rv" style="--i:6">
+        <p>Satu perjalanan, <em>bersama Kawan Coklat</em></p>
+        <div class="chips"><span class="chip">DKI Raya</span><span class="chip">Banten</span><span class="chip">Citarum</span></div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- 3. JADWAL -->
+  <section class="page" data-title="Jadwal">
+    <div class="frame"><img class="leaf l" src="img/leaf.webp" alt="" aria-hidden="true"><img class="leaf r" src="img/leaf.webp" alt="" aria-hidden="true"><div class="fit">
+      <p class="eyebrow rv" style="--i:0">Rangkaian Kegiatan</p>
+      <h2 class="rv" style="--i:1">Apa saja yang <em>menanti</em></h2>
+      <p class="lead rv" style="--i:2">Gambaran besar rangkaian kegiatan per hari.</p>
+      <div class="rv" style="--i:3" data-tabs>
+        <div class="tabs" role="tablist" aria-label="Hari">
+          <button role="tab" aria-selected="true">Day 1</button><button role="tab" aria-selected="false">Day 2</button><button role="tab" aria-selected="false">Day 3</button>
+        </div>
+        <div class="panel on" role="tabpanel">
+          <div class="day-t"><span>Selasa, 10 November</span><b>Menuju Semarang</b></div>
+          <div class="rail">
+            <article class="stop"><figure><svg class="ico" viewBox="0 0 240 180" role="img" aria-label="Ikon bus rombongan"><g class="L">
+<path pathLength="1" d="M6 150 H234"/>
+<rect pathLength="1" x="52" y="54" width="136" height="76" rx="10"/>
+<path pathLength="1" d="M52 78 H188"/>
+<rect pathLength="1" x="62" y="62" width="24" height="12" rx="2"/><rect pathLength="1" x="92" y="62" width="24" height="12" rx="2"/><rect pathLength="1" x="122" y="62" width="24" height="12" rx="2"/><rect pathLength="1" x="152" y="62" width="28" height="12" rx="2"/>
+<path pathLength="1" d="M62 104 H176"/>
+<circle pathLength="1" cx="84" cy="132" r="11"/><circle pathLength="1" cx="156" cy="132" r="11"/>
+<path pathLength="1" d="M188 92 H194 V114 H188"/>
+</g><g class="F">
+<path class="road" d="M6 164 H234" fill="none" stroke="currentColor" stroke-width="2" style="--o:.5"/>
+<circle cx="84" cy="132" r="4" style="--o:.6"/><circle cx="156" cy="132" r="4" style="--o:.6"/>
+<rect x="52" y="54" width="136" height="76" rx="10" style="--o:.1"/>
+<circle class="glow" cx="190" cy="120" r="3" style="--o:.9"/>
+</g><g class="F"><circle class="tw" style="--o:.8" cx="24" cy="24" r="1.2"/><circle class="tw" style="--o:.8;animation-delay:1.3s" cx="214" cy="30" r="1"/><circle class="tw" style="--o:.7;animation-delay:2.1s" cx="196" cy="14" r=".9"/></g></svg></figure><div class="bd"><span class="when">Pagi</span><h4>Berangkat bersama rombongan</h4><p>Perjalanan darat dengan bus menuju Semarang.</p></div></article>
+            <article class="stop"><figure><svg class="ico" viewBox="0 0 240 180" role="img" aria-label="Ikon Kota Lama Semarang"><g class="L">
+<path pathLength="1" d="M6 156 H234"/>
+<path pathLength="1" d="M84 92 Q86 42 120 36 Q154 42 156 92"/>
+<path pathLength="1" d="M100 92 Q102 56 120 44 Q138 56 140 92"/>
+<path pathLength="1" d="M120 36 V22 M114 27 H126"/>
+<rect pathLength="1" x="80" y="92" width="80" height="9"/>
+<rect pathLength="1" x="68" y="101" width="104" height="55"/>
+<path pathLength="1" d="M94 118 L120 102 L146 118 Z"/>
+<path pathLength="1" d="M98 156 V118 M108 156 V118 M132 156 V118 M142 156 V118"/>
+<path pathLength="1" d="M74 128 Q74 116 81 116 Q88 116 88 128 V144 H74 Z M152 128 Q152 116 159 116 Q166 116 166 128 V144 H152 Z"/>
+<path pathLength="1" d="M50 156 V110 H68 M50 110 L59 98 L68 110 M190 156 V110 H172 M190 110 L181 98 L172 110"/>
+<path pathLength="1" d="M26 156 V118 M20 118 H32 L30 110 H22 Z M214 156 V118 M208 118 H220 L218 110 H210 Z"/>
+</g><g class="F">
+<path d="M84 92 Q86 42 120 36 Q154 42 156 92 Z" style="--o:.16"/>
+<circle class="glow" cx="26" cy="113" r="9" style="--o:.35"/><circle class="glow" cx="214" cy="113" r="9" style="--o:.35"/>
+</g><g class="F"><circle class="tw" style="--o:.8" cx="24" cy="24" r="1.2"/><circle class="tw" style="--o:.8;animation-delay:1.3s" cx="214" cy="30" r="1"/><circle class="tw" style="--o:.7;animation-delay:2.1s" cx="196" cy="14" r=".9"/></g></svg></figure><div class="bd"><span class="when">Malam</span><h4>Kota Lama Semarang</h4><p>Makan malam lalu menyusuri bangunan tua Kota Lama.</p></div></article>
+            <article class="stop"><figure><svg class="ico" viewBox="0 0 240 180" role="img" aria-label="Ikon Khas Hotel Semarang"><g class="L">
+<path pathLength="1" d="M6 160 H234"/>
+<rect pathLength="1" x="80" y="36" width="92" height="124"/>
+<path pathLength="1" d="M76 36 H176"/>
+<rect pathLength="1" x="146" y="26" width="22" height="10"/>
+<path pathLength="1" d="M104 44 l5.5 6 -5.5 6 5.5 6 -5.5 6 5.5 6 -5.5 6 5.5 6 -5.5 6 5.5 6 -5.5 6 5.5 6 -5.5 6 5.5 6 -5.5 6 5.5 6 -5.5 6 M131 44 l5.5 6 -5.5 6 5.5 6 -5.5 6 5.5 6 -5.5 6 5.5 6 -5.5 6 5.5 6 -5.5 6 5.5 6 -5.5 6 5.5 6 -5.5 6 5.5 6 -5.5 6"/>
+<rect pathLength="1" x="103" y="42" width="12" height="104"/><rect pathLength="1" x="130" y="42" width="12" height="104"/>
+<path pathLength="1" d="M40 160 V118 H80 M40 118 L48 110 H80"/>
+<path pathLength="1" d="M172 104 H198 V160"/>
+<path pathLength="1" d="M8 146 C2 132 16 118 28 122 C32 110 50 110 54 122 C66 122 68 140 58 146 Z M32 146 V160"/>
+<path pathLength="1" d="M232 146 C238 132 224 118 212 122 C208 110 190 110 186 122 C174 122 172 140 182 146 Z M208 146 V160"/>
+<rect pathLength="1" x="97" y="141" width="58" height="13" rx="2"/>
+<path pathLength="1" d="M182 160 V132"/>
+</g><g class="F"><rect x="85" y="45" width="4.6" height="4" style="--o:.32"/><rect x="85" y="53" width="4.6" height="4" style="--o:.32"/><rect x="85" y="62" width="4.6" height="4" style="--o:.32"/><rect x="85" y="70" width="4.6" height="4" style="--o:.32"/><rect x="85" y="79" width="4.6" height="4" style="--o:.32"/><rect x="85" y="88" width="4.6" height="4" style="--o:.32"/><rect x="85" y="96" width="4.6" height="4" style="--o:.32"/><rect x="85" y="105" width="4.6" height="4" style="--o:.32"/><rect x="85" y="113" width="4.6" height="4" style="--o:.32"/><rect x="85" y="122" width="4.6" height="4" style="--o:.32"/><rect x="85" y="131" width="4.6" height="4" style="--o:.32"/><rect x="85" y="139" width="4.6" height="4" style="--o:.32"/><rect x="94" y="45" width="4.6" height="4" style="--o:.32"/><rect x="94" y="53" width="4.6" height="4" style="--o:.32"/><rect x="94" y="62" width="4.6" height="4" style="--o:.32"/><rect x="94" y="70" width="4.6" height="4" style="--o:.32"/><rect x="94" y="79" width="4.6" height="4" style="--o:.32"/><rect x="94" y="88" width="4.6" height="4" style="--o:.32"/><rect x="94" y="96" width="4.6" height="4" style="--o:.32"/><rect x="94" y="105" width="4.6" height="4" style="--o:.32"/><rect x="94" y="113" width="4.6" height="4" style="--o:.32"/><rect x="94" y="122" width="4.6" height="4" style="--o:.32"/><rect x="94" y="131" width="4.6" height="4" style="--o:.32"/><rect x="94" y="139" width="4.6" height="4" style="--o:.32"/><rect x="120" y="45" width="4.6" height="4" style="--o:.32"/><rect x="120" y="53" width="4.6" height="4" style="--o:.32"/><rect x="120" y="62" width="4.6" height="4" style="--o:.32"/><rect x="120" y="70" width="4.6" height="4" style="--o:.32"/><rect x="120" y="79" width="4.6" height="4" style="--o:.32"/><rect x="120" y="88" width="4.6" height="4" style="--o:.32"/><rect x="120" y="96" width="4.6" height="4" style="--o:.32"/><rect x="120" y="105" width="4.6" height="4" style="--o:.32"/><rect x="120" y="113" width="4.6" height="4" style="--o:.32"/><rect x="120" y="122" width="4.6" height="4" style="--o:.32"/><rect x="120" y="131" width="4.6" height="4" style="--o:.32"/><rect x="120" y="139" width="4.6" height="4" style="--o:.32"/><rect x="147" y="45" width="4.6" height="4" style="--o:.32"/><rect x="147" y="53" width="4.6" height="4" style="--o:.32"/><rect x="147" y="62" width="4.6" height="4" style="--o:.32"/><rect x="147" y="70" width="4.6" height="4" style="--o:.32"/><rect x="147" y="79" width="4.6" height="4" style="--o:.32"/><rect x="147" y="88" width="4.6" height="4" style="--o:.32"/><rect x="147" y="96" width="4.6" height="4" style="--o:.32"/><rect x="147" y="105" width="4.6" height="4" style="--o:.32"/><rect x="147" y="113" width="4.6" height="4" style="--o:.32"/><rect x="147" y="122" width="4.6" height="4" style="--o:.32"/><rect x="147" y="131" width="4.6" height="4" style="--o:.32"/><rect x="147" y="139" width="4.6" height="4" style="--o:.32"/><rect x="156" y="45" width="4.6" height="4" style="--o:.32"/><rect x="156" y="53" width="4.6" height="4" style="--o:.32"/><rect x="156" y="62" width="4.6" height="4" style="--o:.32"/><rect x="156" y="70" width="4.6" height="4" style="--o:.32"/><rect x="156" y="79" width="4.6" height="4" style="--o:.32"/><rect x="156" y="88" width="4.6" height="4" style="--o:.32"/><rect x="156" y="96" width="4.6" height="4" style="--o:.32"/><rect x="156" y="105" width="4.6" height="4" style="--o:.32"/><rect x="156" y="113" width="4.6" height="4" style="--o:.32"/><rect x="156" y="122" width="4.6" height="4" style="--o:.32"/><rect x="156" y="131" width="4.6" height="4" style="--o:.32"/><rect x="156" y="139" width="4.6" height="4" style="--o:.32"/><rect x="165" y="45" width="4.6" height="4" style="--o:.32"/><rect x="165" y="53" width="4.6" height="4" style="--o:.32"/><rect x="165" y="62" width="4.6" height="4" style="--o:.32"/><rect x="165" y="70" width="4.6" height="4" style="--o:.32"/><rect x="165" y="79" width="4.6" height="4" style="--o:.32"/><rect x="165" y="88" width="4.6" height="4" style="--o:.32"/><rect x="165" y="96" width="4.6" height="4" style="--o:.32"/><rect x="165" y="105" width="4.6" height="4" style="--o:.32"/><rect x="165" y="113" width="4.6" height="4" style="--o:.32"/><rect x="165" y="122" width="4.6" height="4" style="--o:.32"/><rect x="165" y="131" width="4.6" height="4" style="--o:.32"/><rect x="165" y="139" width="4.6" height="4" style="--o:.32"/><rect x="22" y="163" width="5" height="4" style="--o:.15"/><rect x="31" y="163" width="5" height="4" style="--o:.35"/><rect x="40" y="163" width="5" height="4" style="--o:.15"/><rect x="49" y="163" width="5" height="4" style="--o:.35"/><rect x="58" y="163" width="5" height="4" style="--o:.15"/><rect x="67" y="163" width="5" height="4" style="--o:.35"/><rect x="76" y="163" width="5" height="4" style="--o:.15"/><rect x="85" y="163" width="5" height="4" style="--o:.35"/><rect x="94" y="163" width="5" height="4" style="--o:.15"/><rect x="103" y="163" width="5" height="4" style="--o:.35"/><rect x="112" y="163" width="5" height="4" style="--o:.15"/><rect x="121" y="163" width="5" height="4" style="--o:.35"/><rect x="130" y="163" width="5" height="4" style="--o:.15"/><rect x="139" y="163" width="5" height="4" style="--o:.35"/><rect x="148" y="163" width="5" height="4" style="--o:.15"/><rect x="157" y="163" width="5" height="4" style="--o:.35"/><rect x="166" y="163" width="5" height="4" style="--o:.15"/><rect x="175" y="163" width="5" height="4" style="--o:.35"/><rect x="184" y="163" width="5" height="4" style="--o:.15"/><rect x="193" y="163" width="5" height="4" style="--o:.35"/><rect x="202" y="163" width="5" height="4" style="--o:.15"/><rect x="211" y="163" width="5" height="4" style="--o:.35"/>
+<rect x="103" y="42" width="12" height="104" style="--o:.5"/><rect x="130" y="42" width="12" height="104" style="--o:.5"/>
+<rect class="glow" x="97" y="141" width="58" height="13" rx="2" style="--o:.3"/>
+<circle class="glow" cx="182" cy="130" r="4" style="--o:.6"/>
+<path d="M8 146 C2 132 16 118 28 122 C32 110 50 110 54 122 C66 122 68 140 58 146 Z" style="--o:.14"/>
+<path d="M232 146 C238 132 224 118 212 122 C208 110 190 110 186 122 C174 122 172 140 182 146 Z" style="--o:.14"/>
+</g><text class="tx " x="80" y="31" font-size="8.5" font-weight="700" letter-spacing="1.6" text-anchor="start">KHAS</text><text class="tx " x="126" y="150.5" font-size="6" font-weight="700" letter-spacing="1" text-anchor="middle">KHAS SEMARANG</text><g class="F"><circle class="tw" style="--o:.8" cx="24" cy="24" r="1.2"/><circle class="tw" style="--o:.8;animation-delay:1.3s" cx="214" cy="30" r="1"/><circle class="tw" style="--o:.7;animation-delay:2.1s" cx="196" cy="14" r=".9"/></g></svg></figure><div class="bd"><span class="when">Malam</span><h4>Check-in Khas Hotel</h4><p>Istirahat untuk persiapan hari utama.</p></div></article>
+          </div>
+          <div class="prog"></div>
+        </div>
+        <div class="panel" role="tabpanel">
+          <div class="day-t"><span>Rabu, 11 November</span><b>Sehari di Kota Kretek</b></div>
+          <div class="rail">
+            <article class="stop"><figure><svg class="ico" viewBox="0 0 240 180" role="img" aria-label="Ikon berangkat pagi"><g class="L">
+<path pathLength="1" d="M10 120 H230"/>
+<path pathLength="1" d="M80 120 A40 40 0 0 1 160 120"/>
+<path pathLength="1" d="M120 60 V48 M78 78 L70 70 M162 78 L170 70 M62 104 H50 M178 104 H190"/>
+<path pathLength="1" d="M112 120 L70 170 M128 120 L170 170"/>
+</g><g class="F">
+<path class="glow" d="M80 120 A40 40 0 0 1 160 120 Z" style="--o:.3"/>
+<path class="road" d="M120 124 V170" fill="none" stroke="currentColor" stroke-width="2" style="--o:.6"/>
+</g><g class="F"><circle class="tw" style="--o:.8" cx="24" cy="24" r="1.2"/><circle class="tw" style="--o:.8;animation-delay:1.3s" cx="214" cy="30" r="1"/><circle class="tw" style="--o:.7;animation-delay:2.1s" cx="196" cy="14" r=".9"/></g></svg></figure><div class="bd"><span class="when">Subuh</span><h4>Berangkat ke Kudus</h4><p>Bersiap sejak pagi, menuju Kota Kretek.</p></div></article>
+            <article class="stop"><figure><svg class="ico" viewBox="0 0 240 180" role="img" aria-label="Ikon SKT Karang Bener"><g class="L">
+<path pathLength="1" d="M8 46 L38 24 L68 46 L98 24 L128 46 L158 24 L188 46 L218 24 L232 34"/>
+<path pathLength="1" d="M8 46 H232"/>
+<path pathLength="1" d="M38 24 V46 M98 24 V46 M158 24 V46 M218 24 V46"/>
+<path pathLength="1" d="M90 46 V52 M150 46 V52"/>
+<rect pathLength="1" x="80" y="52" width="80" height="20" rx="1.5"/>
+<circle pathLength="1" cx="93" cy="62" r="6"/><path pathLength="1" d="M90 65 L96 58"/>
+<path pathLength="1" d="M8 156 H232"/>
+<path pathLength="1" d="M30 168 H210" opacity=".5"/>
+<rect pathLength="1" x="22" y="92" width="20" height="5"/><rect pathLength="1" x="52" y="92" width="20" height="5"/><rect pathLength="1" x="82" y="92" width="20" height="5"/><rect pathLength="1" x="112" y="92" width="20" height="5"/><rect pathLength="1" x="142" y="92" width="20" height="5"/><rect pathLength="1" x="172" y="92" width="20" height="5"/><rect pathLength="1" x="202" y="92" width="20" height="5"/><rect pathLength="1" x="16" y="112" width="24" height="6"/><rect pathLength="1" x="50" y="112" width="24" height="6"/><rect pathLength="1" x="84" y="112" width="24" height="6"/><rect pathLength="1" x="118" y="112" width="24" height="6"/><rect pathLength="1" x="152" y="112" width="24" height="6"/><rect pathLength="1" x="186" y="112" width="24" height="6"/><rect pathLength="1" x="14" y="136" width="30" height="8"/><rect pathLength="1" x="56" y="136" width="30" height="8"/><rect pathLength="1" x="98" y="136" width="30" height="8"/><rect pathLength="1" x="140" y="136" width="30" height="8"/><rect pathLength="1" x="182" y="136" width="30" height="8"/></g><g class="F"><circle cx="32.0" cy="87.9" r="2.6" style="--o:.55"/><circle cx="62.0" cy="87.9" r="2.6" style="--o:.55"/><circle cx="92.0" cy="87.9" r="2.6" style="--o:.55"/><circle cx="122.0" cy="87.9" r="2.6" style="--o:.55"/><circle cx="152.0" cy="87.9" r="2.6" style="--o:.55"/><circle cx="182.0" cy="87.9" r="2.6" style="--o:.55"/><circle cx="212.0" cy="87.9" r="2.6" style="--o:.55"/><circle cx="28.0" cy="107.3" r="3.2" style="--o:.55"/><circle cx="62.0" cy="107.3" r="3.2" style="--o:.55"/><circle cx="96.0" cy="107.3" r="3.2" style="--o:.55"/><circle cx="130.0" cy="107.3" r="3.2" style="--o:.55"/><circle cx="164.0" cy="107.3" r="3.2" style="--o:.55"/><circle cx="198.0" cy="107.3" r="3.2" style="--o:.55"/><circle cx="29.0" cy="130.5" r="4" style="--o:.55"/><circle cx="71.0" cy="130.5" r="4" style="--o:.55"/><circle cx="113.0" cy="130.5" r="4" style="--o:.55"/><circle cx="155.0" cy="130.5" r="4" style="--o:.55"/><circle cx="197.0" cy="130.5" r="4" style="--o:.55"/><rect x="24" y="88.5" width="6.0" height="3.5" style="--o:.3"/><rect x="54" y="88.5" width="6.0" height="3.5" style="--o:.3"/><rect x="84" y="88.5" width="6.0" height="3.5" style="--o:.3"/><rect x="114" y="88.5" width="6.0" height="3.5" style="--o:.3"/><rect x="144" y="88.5" width="6.0" height="3.5" style="--o:.3"/><rect x="174" y="88.5" width="6.0" height="3.5" style="--o:.3"/><rect x="204" y="88.5" width="6.0" height="3.5" style="--o:.3"/><rect x="18" y="107.8" width="7.199999999999999" height="4.199999999999999" style="--o:.3"/><rect x="52" y="107.8" width="7.199999999999999" height="4.199999999999999" style="--o:.3"/><rect x="86" y="107.8" width="7.199999999999999" height="4.199999999999999" style="--o:.3"/><rect x="120" y="107.8" width="7.199999999999999" height="4.199999999999999" style="--o:.3"/><rect x="154" y="107.8" width="7.199999999999999" height="4.199999999999999" style="--o:.3"/><rect x="188" y="107.8" width="7.199999999999999" height="4.199999999999999" style="--o:.3"/><rect x="16" y="130.4" width="9.0" height="5.6" style="--o:.3"/><rect x="58" y="130.4" width="9.0" height="5.6" style="--o:.3"/><rect x="100" y="130.4" width="9.0" height="5.6" style="--o:.3"/><rect x="142" y="130.4" width="9.0" height="5.6" style="--o:.3"/><rect x="184" y="130.4" width="9.0" height="5.6" style="--o:.3"/><rect x="80" y="52" width="80" height="20" rx="1.5" style="--o:.14"/></g><text class="tx " x="127" y="66" font-size="9.5" font-weight="700" letter-spacing="1.4" text-anchor="middle">DJARUM</text><g class="F"><circle class="tw" style="--o:.8" cx="24" cy="24" r="1.2"/><circle class="tw" style="--o:.8;animation-delay:1.3s" cx="214" cy="30" r="1"/><circle class="tw" style="--o:.7;animation-delay:2.1s" cx="196" cy="14" r=".9"/></g></svg></figure><div class="bd"><span class="when">Pagi</span><h4>SKT Karang Bener</h4><p>Melihat langsung tangan-tangan pelinting kretek.</p></div></article>
+            <article class="stop"><figure><svg class="ico" viewBox="0 0 240 180" role="img" aria-label="Ikon Djarum Oasis Kretek Factory"><g class="L">
+<path pathLength="1" d="M6 158 H234"/>
+<path pathLength="1" d="M50 158 L56 122 Q62 108 78 110 L104 104 Q120 101 136 104 L164 108 Q182 110 186 124 L192 158 Z"/>
+<path pathLength="1" d="M98 106 L98 72 Q102 54 106 72 L106 106"/><path pathLength="1" d="M104 106 L104 56 Q108 38 112 56 L112 106"/><path pathLength="1" d="M110 106 L110 42 Q114 24 118 42 L118 106"/><path pathLength="1" d="M116 106 L116 28 Q120 10 124 28 L124 106"/><path pathLength="1" d="M122 106 L122 38 Q126 20 130 38 L130 106"/><path pathLength="1" d="M128 106 L128 52 Q132 34 136 52 L136 106"/><path pathLength="1" d="M134 106 L134 68 Q138 50 142 68 L142 106"/><path pathLength="1" d="M113 106 L113 60 Q117 42 121 60 L121 106"/><path pathLength="1" d="M125 106 L125 64 Q129 46 133 64 L133 106"/>
+<path pathLength="1" d="M28 158 V120 M20 124 C14 112 26 100 34 106 C42 98 52 112 42 122 Z"/>
+<path pathLength="1" d="M214 158 V122 M206 126 C200 114 212 102 220 108 C228 100 238 114 228 124 Z"/>
+<rect pathLength="1" x="36" y="146" width="9" height="12"/><rect pathLength="1" x="195" y="146" width="9" height="12"/>
+</g><g class="F"><path class="shim" d="M98 106 L98 72 Q102 54 106 72 L106 106" style="--o:.22"/><path class="shim" d="M104 106 L104 56 Q108 38 112 56 L112 106" style="--o:.22"/><path class="shim" d="M110 106 L110 42 Q114 24 118 42 L118 106" style="--o:.22"/><path class="shim" d="M116 106 L116 28 Q120 10 124 28 L124 106" style="--o:.22"/><path class="shim" d="M122 106 L122 38 Q126 20 130 38 L130 106" style="--o:.22"/><path class="shim" d="M128 106 L128 52 Q132 34 136 52 L136 106" style="--o:.22"/><path class="shim" d="M134 106 L134 68 Q138 50 142 68 L142 106" style="--o:.22"/><path class="shim" d="M113 106 L113 60 Q117 42 121 60 L121 106" style="--o:.22"/><path class="shim" d="M125 106 L125 64 Q129 46 133 64 L133 106" style="--o:.22"/><path d="M50 158 L56 122 Q62 108 78 110 L104 104 Q120 101 136 104 L164 108 Q182 110 186 124 L192 158 Z" style="--o:.16"/></g><text class="tx " x="121" y="124" font-size="7.5" font-weight="700" letter-spacing="1.4" text-anchor="middle">DJARUM</text><text class="tx " x="121" y="143" font-size="17" font-weight="700" letter-spacing="2.4" text-anchor="middle">OASIS</text><text class="tx " x="121" y="153.5" font-size="5.6" font-weight="700" letter-spacing="1.4" text-anchor="middle">KRETEK FACTORY</text><g class="F"><circle class="tw" style="--o:.8" cx="24" cy="24" r="1.2"/><circle class="tw" style="--o:.8;animation-delay:1.3s" cx="214" cy="30" r="1"/><circle class="tw" style="--o:.7;animation-delay:2.1s" cx="196" cy="14" r=".9"/></g></svg></figure><div class="bd"><span class="when">Siang</span><h4>Djarum Oasis Kretek Factory</h4><p>Dari tradisi ke pabrik kretek modern.</p></div></article>
+            <article class="stop"><figure><svg class="ico" viewBox="0 0 240 180" role="img" aria-label="Ikon GOR Bulutangkis Jati"><g class="L">
+<path pathLength="1" d="M6 156 H234"/>
+<path pathLength="1" d="M104 156 V80 H230 V156"/>
+<path pathLength="1" d="M134 80 Q162 58 194 70 V80"/>
+<path pathLength="1" d="M146 156 V118 H184 V156"/>
+<rect pathLength="1" x="149" y="88" width="32" height="26"/>
+<path pathLength="1" d="M108 100 H140 M108 120 H140 M108 140 H140 M188 104 H226 M188 124 H226 M188 140 H226"/>
+<rect pathLength="1" x="200" y="88" width="24" height="9"/>
+<circle pathLength="1" cx="62" cy="118" r="24"/>
+<path pathLength="1" d="M40 112 Q62 118 84 112 M40 126 Q62 132 84 126"/>
+<path pathLength="1" d="M64 70 m-4 0 a4 4 0 1 0 8 0 a4 4 0 1 0 -8 0 M63 75 L61 90 M61 90 L53 98 M61 90 L70 96 M63 79 L74 66 M63 79 L53 84"/>
+<ellipse pathLength="1" cx="77" cy="60" rx="3.2" ry="5.2"/>
+<path pathLength="1" d="M30 146 Q62 158 94 146 M30 146 Q62 136 94 146"/>
+<path pathLength="1" d="M24 150 Q28 112 22 74 M22 74 Q10 68 10 84 M22 74 Q34 64 40 76 M22 74 Q18 58 30 54 M22 74 Q12 58 6 64"/>
+</g><g class="F">
+<g class="spin"><ellipse cx="62" cy="118" rx="10" ry="24" fill="none" stroke="currentColor" stroke-width="1.2" style="--o:.7"/></g>
+<rect x="149" y="88" width="32" height="26" class="e" style="--o:.42"/>
+<rect x="200" y="88" width="24" height="9" class="e" style="--o:.7"/>
+<circle cx="62" cy="118" r="24" style="--o:.12"/>
+<ellipse cx="62" cy="146" rx="36" ry="5" style="--o:.18"/>
+</g><text class="tx " x="212" y="95" font-size="5" font-weight="700" letter-spacing="0.6" text-anchor="middle">DJARUM</text><g class="F"><circle class="tw" style="--o:.8" cx="24" cy="24" r="1.2"/><circle class="tw" style="--o:.8;animation-delay:1.3s" cx="214" cy="30" r="1"/><circle class="tw" style="--o:.7;animation-delay:2.1s" cx="196" cy="14" r=".9"/></g></svg></figure><div class="bd"><span class="when">Sore</span><h4>GOR Bulutangkis Jati</h4><p>Tempat lahirnya juara bulutangkis Indonesia.</p></div></article>
+            <article class="stop"><figure><svg class="ico" viewBox="0 0 240 180" role="img" aria-label="Ikon Super Soccer Arena"><g class="L">
+<path pathLength="1" d="M6 160 H234"/>
+<path pathLength="1" d="M100 74 L232 54 L232 63 L110 82 Z"/>
+<path pathLength="1" d="M114 81 V146 M226 64 V146"/>
+<path pathLength="1" d="M114 96 L226 84"/>
+<path pathLength="1" d="M120 140 Q132 106 146 140 M152 140 Q166 108 182 140 M188 140 Q202 110 218 140"/>
+<path pathLength="1" d="M12 146 H232 M12 134 H232"/>
+<rect pathLength="1" x="12" y="124" width="10" height="22"/>
+<path pathLength="1" d="M16 146 V34"/><path pathLength="1" d="M26 146 V36"/><path pathLength="1" d="M36 146 V38"/><path pathLength="1" d="M46 146 V40"/><path pathLength="1" d="M56 146 V42"/><path pathLength="1" d="M66 146 V44"/><path pathLength="1" d="M76 146 V46"/><path pathLength="1" d="M86 146 V48"/><path pathLength="1" d="M96 146 V50"/></g><g class="F"><rect class="flag " x="16" y="34" width="8" height="6" style="--o:.5;animation-delay:0.0s"/><rect class="flag e" x="26" y="36" width="8" height="6" style="--o:.75;animation-delay:0.17s"/><rect class="flag " x="36" y="38" width="8" height="6" style="--o:.5;animation-delay:0.34s"/><rect class="flag c" x="46" y="40" width="8" height="6" style="--o:.75;animation-delay:0.51s"/><rect class="flag " x="56" y="42" width="8" height="6" style="--o:.5;animation-delay:0.68s"/><rect class="flag e" x="66" y="44" width="8" height="6" style="--o:.75;animation-delay:0.8500000000000001s"/><rect class="flag " x="76" y="46" width="8" height="6" style="--o:.5;animation-delay:1.02s"/><rect class="flag c" x="86" y="48" width="8" height="6" style="--o:.75;animation-delay:1.1900000000000002s"/><rect class="flag " x="96" y="50" width="8" height="6" style="--o:.5;animation-delay:1.36s"/>
+<path d="M100 74 L232 54 L232 63 L110 82 Z" style="--o:.2"/>
+<rect x="12" y="124" width="10" height="22" class="e" style="--o:.75"/>
+</g><text class="tx " x="128" y="143" font-size="7.4" font-weight="700" letter-spacing="1.3" text-anchor="middle">SUPERSOCCER ARENA</text><g class="F"><circle class="tw" style="--o:.8" cx="24" cy="24" r="1.2"/><circle class="tw" style="--o:.8;animation-delay:1.3s" cx="214" cy="30" r="1"/><circle class="tw" style="--o:.7;animation-delay:2.1s" cx="196" cy="14" r=".9"/></g></svg></figure><div class="bd"><span class="when">Sore</span><h4>Super Soccer Arena</h4><p>Kompleks sepak bola modern di Kudus.</p></div></article>
+            <article class="stop"><figure><svg class="ico" viewBox="0 0 240 180" role="img" aria-label="Ikon Gala Dinner"><g class="L">
+<path pathLength="1" d="M18 122 H222"/>
+<path pathLength="1" d="M18 122 Q24 148 16 168 M222 122 Q216 148 224 168"/>
+<rect pathLength="1" x="70" y="62" width="7" height="50"/><rect pathLength="1" x="116.5" y="48" width="7" height="64"/><rect pathLength="1" x="163" y="62" width="7" height="50"/>
+<path pathLength="1" d="M62 112 H85 M109 112 H131 M155 112 H178"/>
+<ellipse pathLength="1" cx="120" cy="140" rx="32" ry="8"/><ellipse pathLength="1" cx="120" cy="140" rx="20" ry="4.6"/>
+<path pathLength="1" d="M78 130 V152 M74 130 V136 Q76 140 78 140 Q80 140 82 136 V130"/>
+<path pathLength="1" d="M162 130 Q167 135 162 140 V152"/>
+<path pathLength="1" d="M92 104 Q93 118 98 119 V128 M93 129 H103 M98 119 Q103 118 104 104 Z"/>
+<path pathLength="1" d="M136 104 Q137 118 142 119 V128 M137 129 H147 M142 119 Q147 118 148 104 Z"/>
+</g><g class="F">
+<circle class="glow" cx="73.5" cy="52" r="16" style="--o:.22"/><circle class="glow" cx="120" cy="38" r="18" style="--o:.22"/><circle class="glow" cx="166.5" cy="52" r="16" style="--o:.22"/>
+<path class="flame" d="M73.5 59 q-5 -7 0 -14 q5 7 0 14 Z" style="--o:.95"/>
+<path class="flame" d="M120 45 q-5 -7 0 -14 q5 7 0 14 Z" style="--o:.95;animation-delay:.4s"/>
+<path class="flame" d="M166.5 59 q-5 -7 0 -14 q5 7 0 14 Z" style="--o:.95;animation-delay:.8s"/>
+<ellipse cx="120" cy="140" rx="32" ry="8" style="--o:.12"/>
+</g><g class="F"><circle class="tw" style="--o:.8" cx="24" cy="24" r="1.2"/><circle class="tw" style="--o:.8;animation-delay:1.3s" cx="214" cy="30" r="1"/><circle class="tw" style="--o:.7;animation-delay:2.1s" cx="196" cy="14" r=".9"/></g></svg></figure><div class="bd"><span class="when">Malam</span><h4>Gala Dinner</h4><p>Malam kebersamaan di Khas Hotel Semarang.</p></div></article>
+          </div>
+          <div class="prog"></div>
+        </div>
+        <div class="panel" role="tabpanel">
+          <div class="day-t"><span>Kamis, 12 November</span><b>Jejak Semarang</b></div>
+          <div class="rail">
+            <article class="stop"><figure><svg class="ico" viewBox="0 0 240 180" role="img" aria-label="Ikon Khas Hotel Semarang"><g class="L">
+<path pathLength="1" d="M6 160 H234"/>
+<rect pathLength="1" x="80" y="36" width="92" height="124"/>
+<path pathLength="1" d="M76 36 H176"/>
+<rect pathLength="1" x="146" y="26" width="22" height="10"/>
+<path pathLength="1" d="M104 44 l5.5 6 -5.5 6 5.5 6 -5.5 6 5.5 6 -5.5 6 5.5 6 -5.5 6 5.5 6 -5.5 6 5.5 6 -5.5 6 5.5 6 -5.5 6 5.5 6 -5.5 6 M131 44 l5.5 6 -5.5 6 5.5 6 -5.5 6 5.5 6 -5.5 6 5.5 6 -5.5 6 5.5 6 -5.5 6 5.5 6 -5.5 6 5.5 6 -5.5 6 5.5 6 -5.5 6"/>
+<rect pathLength="1" x="103" y="42" width="12" height="104"/><rect pathLength="1" x="130" y="42" width="12" height="104"/>
+<path pathLength="1" d="M40 160 V118 H80 M40 118 L48 110 H80"/>
+<path pathLength="1" d="M172 104 H198 V160"/>
+<path pathLength="1" d="M8 146 C2 132 16 118 28 122 C32 110 50 110 54 122 C66 122 68 140 58 146 Z M32 146 V160"/>
+<path pathLength="1" d="M232 146 C238 132 224 118 212 122 C208 110 190 110 186 122 C174 122 172 140 182 146 Z M208 146 V160"/>
+<rect pathLength="1" x="97" y="141" width="58" height="13" rx="2"/>
+<path pathLength="1" d="M182 160 V132"/>
+</g><g class="F"><rect x="85" y="45" width="4.6" height="4" style="--o:.32"/><rect x="85" y="53" width="4.6" height="4" style="--o:.32"/><rect x="85" y="62" width="4.6" height="4" style="--o:.32"/><rect x="85" y="70" width="4.6" height="4" style="--o:.32"/><rect x="85" y="79" width="4.6" height="4" style="--o:.32"/><rect x="85" y="88" width="4.6" height="4" style="--o:.32"/><rect x="85" y="96" width="4.6" height="4" style="--o:.32"/><rect x="85" y="105" width="4.6" height="4" style="--o:.32"/><rect x="85" y="113" width="4.6" height="4" style="--o:.32"/><rect x="85" y="122" width="4.6" height="4" style="--o:.32"/><rect x="85" y="131" width="4.6" height="4" style="--o:.32"/><rect x="85" y="139" width="4.6" height="4" style="--o:.32"/><rect x="94" y="45" width="4.6" height="4" style="--o:.32"/><rect x="94" y="53" width="4.6" height="4" style="--o:.32"/><rect x="94" y="62" width="4.6" height="4" style="--o:.32"/><rect x="94" y="70" width="4.6" height="4" style="--o:.32"/><rect x="94" y="79" width="4.6" height="4" style="--o:.32"/><rect x="94" y="88" width="4.6" height="4" style="--o:.32"/><rect x="94" y="96" width="4.6" height="4" style="--o:.32"/><rect x="94" y="105" width="4.6" height="4" style="--o:.32"/><rect x="94" y="113" width="4.6" height="4" style="--o:.32"/><rect x="94" y="122" width="4.6" height="4" style="--o:.32"/><rect x="94" y="131" width="4.6" height="4" style="--o:.32"/><rect x="94" y="139" width="4.6" height="4" style="--o:.32"/><rect x="120" y="45" width="4.6" height="4" style="--o:.32"/><rect x="120" y="53" width="4.6" height="4" style="--o:.32"/><rect x="120" y="62" width="4.6" height="4" style="--o:.32"/><rect x="120" y="70" width="4.6" height="4" style="--o:.32"/><rect x="120" y="79" width="4.6" height="4" style="--o:.32"/><rect x="120" y="88" width="4.6" height="4" style="--o:.32"/><rect x="120" y="96" width="4.6" height="4" style="--o:.32"/><rect x="120" y="105" width="4.6" height="4" style="--o:.32"/><rect x="120" y="113" width="4.6" height="4" style="--o:.32"/><rect x="120" y="122" width="4.6" height="4" style="--o:.32"/><rect x="120" y="131" width="4.6" height="4" style="--o:.32"/><rect x="120" y="139" width="4.6" height="4" style="--o:.32"/><rect x="147" y="45" width="4.6" height="4" style="--o:.32"/><rect x="147" y="53" width="4.6" height="4" style="--o:.32"/><rect x="147" y="62" width="4.6" height="4" style="--o:.32"/><rect x="147" y="70" width="4.6" height="4" style="--o:.32"/><rect x="147" y="79" width="4.6" height="4" style="--o:.32"/><rect x="147" y="88" width="4.6" height="4" style="--o:.32"/><rect x="147" y="96" width="4.6" height="4" style="--o:.32"/><rect x="147" y="105" width="4.6" height="4" style="--o:.32"/><rect x="147" y="113" width="4.6" height="4" style="--o:.32"/><rect x="147" y="122" width="4.6" height="4" style="--o:.32"/><rect x="147" y="131" width="4.6" height="4" style="--o:.32"/><rect x="147" y="139" width="4.6" height="4" style="--o:.32"/><rect x="156" y="45" width="4.6" height="4" style="--o:.32"/><rect x="156" y="53" width="4.6" height="4" style="--o:.32"/><rect x="156" y="62" width="4.6" height="4" style="--o:.32"/><rect x="156" y="70" width="4.6" height="4" style="--o:.32"/><rect x="156" y="79" width="4.6" height="4" style="--o:.32"/><rect x="156" y="88" width="4.6" height="4" style="--o:.32"/><rect x="156" y="96" width="4.6" height="4" style="--o:.32"/><rect x="156" y="105" width="4.6" height="4" style="--o:.32"/><rect x="156" y="113" width="4.6" height="4" style="--o:.32"/><rect x="156" y="122" width="4.6" height="4" style="--o:.32"/><rect x="156" y="131" width="4.6" height="4" style="--o:.32"/><rect x="156" y="139" width="4.6" height="4" style="--o:.32"/><rect x="165" y="45" width="4.6" height="4" style="--o:.32"/><rect x="165" y="53" width="4.6" height="4" style="--o:.32"/><rect x="165" y="62" width="4.6" height="4" style="--o:.32"/><rect x="165" y="70" width="4.6" height="4" style="--o:.32"/><rect x="165" y="79" width="4.6" height="4" style="--o:.32"/><rect x="165" y="88" width="4.6" height="4" style="--o:.32"/><rect x="165" y="96" width="4.6" height="4" style="--o:.32"/><rect x="165" y="105" width="4.6" height="4" style="--o:.32"/><rect x="165" y="113" width="4.6" height="4" style="--o:.32"/><rect x="165" y="122" width="4.6" height="4" style="--o:.32"/><rect x="165" y="131" width="4.6" height="4" style="--o:.32"/><rect x="165" y="139" width="4.6" height="4" style="--o:.32"/><rect x="22" y="163" width="5" height="4" style="--o:.15"/><rect x="31" y="163" width="5" height="4" style="--o:.35"/><rect x="40" y="163" width="5" height="4" style="--o:.15"/><rect x="49" y="163" width="5" height="4" style="--o:.35"/><rect x="58" y="163" width="5" height="4" style="--o:.15"/><rect x="67" y="163" width="5" height="4" style="--o:.35"/><rect x="76" y="163" width="5" height="4" style="--o:.15"/><rect x="85" y="163" width="5" height="4" style="--o:.35"/><rect x="94" y="163" width="5" height="4" style="--o:.15"/><rect x="103" y="163" width="5" height="4" style="--o:.35"/><rect x="112" y="163" width="5" height="4" style="--o:.15"/><rect x="121" y="163" width="5" height="4" style="--o:.35"/><rect x="130" y="163" width="5" height="4" style="--o:.15"/><rect x="139" y="163" width="5" height="4" style="--o:.35"/><rect x="148" y="163" width="5" height="4" style="--o:.15"/><rect x="157" y="163" width="5" height="4" style="--o:.35"/><rect x="166" y="163" width="5" height="4" style="--o:.15"/><rect x="175" y="163" width="5" height="4" style="--o:.35"/><rect x="184" y="163" width="5" height="4" style="--o:.15"/><rect x="193" y="163" width="5" height="4" style="--o:.35"/><rect x="202" y="163" width="5" height="4" style="--o:.15"/><rect x="211" y="163" width="5" height="4" style="--o:.35"/>
+<rect x="103" y="42" width="12" height="104" style="--o:.5"/><rect x="130" y="42" width="12" height="104" style="--o:.5"/>
+<rect class="glow" x="97" y="141" width="58" height="13" rx="2" style="--o:.3"/>
+<circle class="glow" cx="182" cy="130" r="4" style="--o:.6"/>
+<path d="M8 146 C2 132 16 118 28 122 C32 110 50 110 54 122 C66 122 68 140 58 146 Z" style="--o:.14"/>
+<path d="M232 146 C238 132 224 118 212 122 C208 110 190 110 186 122 C174 122 172 140 182 146 Z" style="--o:.14"/>
+</g><text class="tx " x="80" y="31" font-size="8.5" font-weight="700" letter-spacing="1.6" text-anchor="start">KHAS</text><text class="tx " x="126" y="150.5" font-size="6" font-weight="700" letter-spacing="1" text-anchor="middle">KHAS SEMARANG</text><g class="F"><circle class="tw" style="--o:.8" cx="24" cy="24" r="1.2"/><circle class="tw" style="--o:.8;animation-delay:1.3s" cx="214" cy="30" r="1"/><circle class="tw" style="--o:.7;animation-delay:2.1s" cx="196" cy="14" r=".9"/></g></svg></figure><div class="bd"><span class="when">Pagi</span><h4>Sarapan &amp; check-out</h4><p>Mulai hari dengan santai sebelum berkeliling.</p></div></article>
+            <article class="stop"><figure><svg class="ico" viewBox="0 0 240 180" role="img" aria-label="Ikon Lawang Sewu"><g class="L">
+<path pathLength="1" d="M6 156 H234"/>
+<path pathLength="1" d="M14 156 V106 L22 96 H80 M226 156 V106 L218 96 H160"/>
+<path pathLength="1" d="M14 116 H80 M160 116 H226"/>
+<path pathLength="1" d="M20 150 V132 Q24.5 124 29 132 V150 M33 150 V132 Q37.5 124 42 132 V150 M46 150 V132 Q50.5 124 55 132 V150 M59 150 V132 Q63.5 124 68 132 V150 M72 150 V132 Q76.5 124 81 132 V150 M166 150 V132 Q170.5 124 175 132 V150 M179 150 V132 Q183.5 124 188 132 V150 M192 150 V132 Q196.5 124 201 132 V150 M205 150 V132 Q209.5 124 214 132 V150 M218 150 V132 Q222.5 124 227 132 V150 "/>
+<path pathLength="1" d="M80 156 V62 H98 V156 M78 62 H100 M82 62 V48 H96 V62"/>
+<path pathLength="1" d="M80 48 Q89 26 98 48 Z M89 30 V20"/>
+<path pathLength="1" d="M142 156 V62 H160 V156 M140 62 H162 M144 62 V48 H158 V62"/>
+<path pathLength="1" d="M142 48 Q151 26 160 48 Z M151 30 V20"/>
+<rect pathLength="1" x="86" y="72" width="6" height="11" rx="3"/><rect pathLength="1" x="86" y="98" width="6" height="11" rx="3"/>
+<rect pathLength="1" x="148" y="72" width="6" height="11" rx="3"/><rect pathLength="1" x="148" y="98" width="6" height="11" rx="3"/>
+<path pathLength="1" d="M98 156 V86 L120 68 L142 86 V156"/>
+<path pathLength="1" d="M110 104 Q120 90 130 104 V114 H110 Z"/>
+<path pathLength="1" d="M104 156 V138 Q111 130 118 138 V156 M122 156 V138 Q129 130 136 138 V156"/>
+<path pathLength="1" d="M128 76 V52"/>
+</g><g class="F">
+<path d="M80 48 Q89 26 98 48 Z" class="e" style="--o:.55"/><path d="M142 48 Q151 26 160 48 Z" class="e" style="--o:.55"/>
+<path d="M14 106 L22 96 H80 V116 H14 Z" class="e" style="--o:.22"/><path d="M226 106 L218 96 H160 V116 H226 Z" class="e" style="--o:.22"/>
+<path d="M98 86 L120 68 L142 86 Z" class="e" style="--o:.3"/>
+<rect class="flag e" x="128" y="52" width="10" height="6" style="--o:.8"/>
+</g><g class="F"><circle class="tw" style="--o:.8" cx="24" cy="24" r="1.2"/><circle class="tw" style="--o:.8;animation-delay:1.3s" cx="214" cy="30" r="1"/><circle class="tw" style="--o:.7;animation-delay:2.1s" cx="196" cy="14" r=".9"/></g></svg></figure><div class="bd"><span class="when">Pagi</span><h4>Lawang Sewu</h4><p>Gedung seribu pintu, ikon sejarah Semarang.</p></div></article>
+            <article class="stop"><figure><svg class="ico" viewBox="0 0 240 180" role="img" aria-label="Ikon Kelenteng Sam Poo Kong"><g class="L">
+<path pathLength="1" d="M6 160 H234"/>
+<rect pathLength="1" x="24" y="148" width="192" height="8"/>
+<path pathLength="1" d="M40 148 V108 M60 148 V108 M80 148 V108 M100 148 V108 M120 148 V108 M140 148 V108 M160 148 V108 M180 148 V108 M200 148 V108 "/>
+<path pathLength="1" d="M14 102 Q30 102 40 90 H200 Q210 102 226 102 L218 108 H22 Z"/>
+<rect pathLength="1" x="62" y="70" width="116" height="20"/>
+<path pathLength="1" d="M72 72 V88 M82 72 V88 M92 72 V88 M102 72 V88 M112 72 V88 M122 72 V88 M132 72 V88 M142 72 V88 M152 72 V88 M162 72 V88 "/>
+<path pathLength="1" d="M38 70 Q54 70 64 54 H176 Q186 70 202 70 L196 76 H44 Z"/>
+<path pathLength="1" d="M70 54 q-6 -10 6 -13 M170 54 q6 -10 -6 -13"/>
+<circle pathLength="1" cx="120" cy="47" r="3.2"/>
+<path pathLength="1" d="M60 108 V113 M180 108 V113"/>
+</g><g class="F">
+<path d="M14 102 Q30 102 40 90 H200 Q210 102 226 102 L218 108 H22 Z" class="e" style="--o:.45"/>
+<path d="M38 70 Q54 70 64 54 H176 Q186 70 202 70 L196 76 H44 Z" class="e" style="--o:.5"/>
+<g class="sway"><ellipse cx="60" cy="119" rx="5" ry="6.5" class="e" style="--o:.85"/></g>
+<g class="sway" style="animation-delay:.8s"><ellipse cx="180" cy="119" rx="5" ry="6.5" class="e" style="--o:.85"/></g>
+<rect x="62" y="70" width="116" height="20" style="--o:.12"/>
+</g><g class="F"><circle class="tw" style="--o:.8" cx="24" cy="24" r="1.2"/><circle class="tw" style="--o:.8;animation-delay:1.3s" cx="214" cy="30" r="1"/><circle class="tw" style="--o:.7;animation-delay:2.1s" cx="196" cy="14" r=".9"/></g></svg></figure><div class="bd"><span class="when">Pagi</span><h4>Sam Poo Kong</h4><p>Kelenteng bersejarah berarsitektur Tionghoa.</p></div></article>
+            <article class="stop"><figure><svg class="ico" viewBox="0 0 240 180" role="img" aria-label="Ikon oleh-oleh"><g class="L">
+<path pathLength="1" d="M72 64 H168 L176 160 H64 Z"/>
+<path pathLength="1" d="M98 64 V54 Q98 34 120 34 Q142 34 142 54 V64"/>
+<path pathLength="1" d="M90 112 Q112 94 140 108 L152 98 L150 124 L140 116 Q112 130 90 112 Z"/>
+<circle pathLength="1" cx="100" cy="109" r="1.6"/>
+<path pathLength="1" d="M112 104 Q116 111 112 118 M122 104 Q126 111 122 120"/>
+<path pathLength="1" d="M30 160 H210"/>
+</g><g class="F">
+<path d="M72 64 H168 L176 160 H64 Z" style="--o:.12"/>
+<path class="shim" d="M90 112 Q112 94 140 108 L152 98 L150 124 L140 116 Q112 130 90 112 Z" style="--o:.35"/>
+</g><g class="F"><circle class="tw" style="--o:.8" cx="24" cy="24" r="1.2"/><circle class="tw" style="--o:.8;animation-delay:1.3s" cx="214" cy="30" r="1"/><circle class="tw" style="--o:.7;animation-delay:2.1s" cx="196" cy="14" r=".9"/></g></svg></figure><div class="bd"><span class="when">Siang</span><h4>Oleh-oleh khas Semarang</h4><p>Buah tangan untuk dibawa pulang.</p></div></article>
+            <article class="stop"><figure><svg class="ico" viewBox="0 0 240 180" role="img" aria-label="Ikon perjalanan pulang"><g class="L">
+<path pathLength="1" d="M6 150 H234"/>
+<path pathLength="1" d="M170 30 A22 22 0 1 0 192 62 A17 17 0 1 1 170 30 Z"/>
+<rect pathLength="1" x="44" y="96" width="104" height="44" rx="8"/>
+<path pathLength="1" d="M44 112 H148"/>
+<rect pathLength="1" x="52" y="101" width="18" height="8" rx="1.5"/><rect pathLength="1" x="74" y="101" width="18" height="8" rx="1.5"/><rect pathLength="1" x="96" y="101" width="18" height="8" rx="1.5"/><rect pathLength="1" x="118" y="101" width="22" height="8" rx="1.5"/>
+<circle pathLength="1" cx="66" cy="142" r="8"/><circle pathLength="1" cx="126" cy="142" r="8"/>
+</g><g class="F">
+<path class="glow" d="M170 30 A22 22 0 1 0 192 62 A17 17 0 1 1 170 30 Z" style="--o:.4"/>
+<path class="road" d="M6 164 H234" fill="none" stroke="currentColor" stroke-width="2" style="--o:.5"/>
+<circle class="tw" cx="210" cy="84" r="1.4" style="--o:.9"/><circle class="tw" cx="132" cy="44" r="1.2" style="--o:.9;animation-delay:.9s"/>
+<circle class="glow" cx="40" cy="128" r="3" style="--o:.9"/>
+</g><g class="F"><circle class="tw" style="--o:.8" cx="24" cy="24" r="1.2"/><circle class="tw" style="--o:.8;animation-delay:1.3s" cx="214" cy="30" r="1"/><circle class="tw" style="--o:.7;animation-delay:2.1s" cx="196" cy="14" r=".9"/></g></svg></figure><div class="bd"><span class="when">Siang – Malam</span><h4>Kembali ke Jakarta</h4><p>Perjalanan pulang bersama rombongan.</p></div></article>
+          </div>
+          <div class="prog"></div>
+        </div>
+        <p class="swipe">Geser untuk melihat <span>›</span></p>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- 4. AKOMODASI -->
+  <section class="page" data-title="Akomodasi">
+    <div class="frame"><img class="leaf l" src="img/leaf.webp" alt="" aria-hidden="true"><img class="leaf r" src="img/leaf.webp" alt="" aria-hidden="true"><div class="fit">
+      <p class="eyebrow rv" style="--i:0">Akomodasi</p>
+      <h2 class="rv" style="--i:1">Khas Hotel <em>Semarang</em></h2>
+      <div class="mosaic rv" style="--i:2">
+        <div class="photo kb"><img src="img/khas-ext.webp" alt="Tampak depan Khas Hotel Semarang" loading="lazy"><span class="sheen"></span></div>
+        <div class="photo"><img src="img/hotel1.webp" alt="Kamar Khas Hotel Semarang" loading="lazy"></div>
+        <div class="photo"><img src="img/hotel3.webp" alt="Restoran Khas Hotel Semarang" loading="lazy"></div>
+      </div>
+      <div class="addr rv" style="--i:3">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+        <div><small>Alamat</small><p>Jl. Depok No. 33, Kembangsari, Semarang Tengah, Jawa Tengah 50133</p></div>
+      </div>
+      <div class="ci rv" style="--i:4">
+        <div><small>Check-in</small><b>Selasa, 10 Nov</b></div>
+        <div><small>Check-out</small><b>Kamis, 12 Nov</b></div>
+      </div>
+      <a class="btn rv" style="--i:5" href="https://www.google.com/maps/search/?api=1&amp;query=Khas+Hotel+Semarang+Jl.+Depok+No.+33" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        Buka di Google Maps
+      </a>
+    </div></div>
+  </section>
+
+  <!-- 5. DRESSCODE -->
+  <section class="page" data-title="Dresscode">
+    <div class="frame"><img class="leaf l" src="img/leaf.webp" alt="" aria-hidden="true"><img class="leaf r" src="img/leaf.webp" alt="" aria-hidden="true"><div class="fit">
+      <p class="eyebrow rv" style="--i:0">Dresscode</p>
+      <h2 class="rv" style="--i:1">Tampil <em>kompak</em></h2>
+      <div class="rv" style="--i:2" data-tabs>
+        <div class="tabs" role="tablist" aria-label="Dresscode per hari">
+          <button role="tab" aria-selected="true">Day 1</button><button role="tab" aria-selected="false">Day 2</button><button role="tab" aria-selected="false">Day 3</button>
+        </div>
+        <div class="panel on" role="tabpanel">
+          <div class="dress-img"><img src="img/tee-culvis.webp" alt="T-Shirt Culvis Kawan Coklat, tampak depan dan belakang"></div>
+          <div class="dress-t"><b>T-Shirt Culvis Kawan Coklat</b><div class="chips"><span class="chip">Celana panjang</span><span class="chip">Sepatu</span></div></div>
+        </div>
+        <div class="panel" role="tabpanel">
+          <div class="dress-img"><img src="img/tee-badminton.webp" alt="T-Shirt Djarum Badminton x KaCo, tampak depan dan belakang"></div>
+          <div class="dress-t"><b>T-Shirt Djarum Badminton x KaCo</b><div class="chips"><span class="chip">Celana panjang</span><span class="chip">Sepatu</span></div></div>
+        </div>
+        <div class="panel" role="tabpanel">
+          <div class="duo">
+            <figure><img src="img/outfit-pria.svg" alt="Contoh outfit pria casual: kaos polo berkerah, celana chino, sneakers"><figcaption>Pria Casual</figcaption></figure>
+            <figure><img src="img/outfit-wanita.svg" alt="Contoh outfit wanita casual: kemeja berkerah, celana panjang, flat shoes"><figcaption>Wanita Casual</figcaption></figure>
+          </div>
+          <div class="dress-t"><b>Casual rapi, atasan berkerah</b><p>Kemeja atau kaus polo berkerah, plus sepatu.</p><div class="chips"><span class="chip">Celana panjang</span><span class="chip">Sepatu</span></div></div>
+        </div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- 6. ATURAN -->
+  <section class="page" data-title="Do's & Don'ts">
+    <div class="frame"><img class="leaf l" src="img/leaf.webp" alt="" aria-hidden="true"><img class="leaf r" src="img/leaf.webp" alt="" aria-hidden="true"><div class="fit">
+      <p class="eyebrow rv" style="--i:0">Selama Perjalanan</p>
+      <h2 class="rv" style="--i:1">Do's &amp; <em>Don'ts</em></h2>
+      <div class="rv" style="--i:2" data-tabs>
+        <div class="tabs" role="tablist" aria-label="Aturan">
+          <button role="tab" aria-selected="true">Do's</button><button role="tab" aria-selected="false">Don'ts</button>
+        </div>
+        <div class="panel on" role="tabpanel">
+          <ul class="rules"><li><span class="mk" style="--k:0"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M5.5 12.5l4 4 9-9.5"/></svg></span><div><b>Ikuti seluruh jadwal kegiatan</b><span class="d">Tepat waktu dan sesuai arahan panitia.</span></div></li><li><span class="mk" style="--k:1"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M5.5 12.5l4 4 9-9.5"/></svg></span><div><b>Bawa identitas diri</b><span class="d">KTP/SIM untuk verifikasi saat kunjungan.</span></div></li><li><span class="mk" style="--k:2"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M5.5 12.5l4 4 9-9.5"/></svg></span><div><b>Bawa obat-obatan pribadi</b><span class="d">Terutama bila punya kebutuhan khusus.</span></div></li><li><span class="mk" style="--k:3"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M5.5 12.5l4 4 9-9.5"/></svg></span><div><b>Patuhi aturan di setiap lokasi</b><span class="d">Termasuk area terbatas dan aturan dokumentasi.</span></div></li><li><span class="mk" style="--k:4"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M5.5 12.5l4 4 9-9.5"/></svg></span><div><b>Berfoto di spot yang ditentukan</b><span class="d">Pakai gaya terbaik, tetap jaga etika.</span></div></li><li><span class="mk" style="--k:5"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M5.5 12.5l4 4 9-9.5"/></svg></span><div><b>Jaga sopan santun</b><span class="d">Selama perjalanan dan saat menerima jamuan.</span></div></li><li><span class="mk" style="--k:6"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M5.5 12.5l4 4 9-9.5"/></svg></span><div><b>Jaga barang pribadi</b><span class="d">Kehilangan karena kelalaian jadi tanggung jawab peserta.</span></div></li></ul>
+        </div>
+        <div class="panel dont" role="tabpanel">
+          <ul class="rules"><li><span class="mk" style="--k:0"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M7 7l10 10M17 7L7 17"/></svg></span><div><b>Memesan makanan pribadi di hotel</b><span class="d">Di luar konsumsi yang disediakan panitia.</span></div></li><li><span class="mk" style="--k:1"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M7 7l10 10M17 7L7 17"/></svg></span><div><b>Memakai layanan laundry hotel</b><span class="d">Fasilitas laundry tidak termasuk untuk peserta.</span></div></li><li><span class="mk" style="--k:2"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M7 7l10 10M17 7L7 17"/></svg></span><div><b>Melanggar aturan di lokasi kunjungan</b><span class="d">Termasuk dokumentasi di area tertentu atau masuk area terlarang.</span></div></li><li><span class="mk" style="--k:3"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M7 7l10 10M17 7L7 17"/></svg></span><div><b>Bersikap tidak sopan</b><span class="d">Jaga perilaku, tutur kata, dan etika.</span></div></li><li><span class="mk" style="--k:4"><svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M7 7l10 10M17 7L7 17"/></svg></span><div><b>Merokok di area terlarang</b><span class="d">Ikuti tanda smoking area di setiap lokasi.</span></div></li></ul>
+        </div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- 7. COUNTDOWN -->
+  <section class="page" data-title="Countdown">
+    <div class="frame"><img class="leaf l" src="img/leaf.webp" alt="" aria-hidden="true"><img class="leaf r" src="img/leaf.webp" alt="" aria-hidden="true"><div class="fit">
+      <p class="eyebrow rv" style="--i:0">Hitung Mundur</p>
+      <h2 class="rv" style="--i:1">Menuju <em>keberangkatan</em></h2>
+      <div class="cd-wrap rv" style="--i:2">
+        <svg class="cd-orbit" viewBox="0 0 200 200" aria-hidden="true">
+          <circle cx="100" cy="100" r="97" stroke-width=".8" stroke-dasharray="2 6" opacity=".7"/>
+          <g class="o2"><circle cx="100" cy="100" r="88" stroke-width="1" stroke-dasharray="60 20 4 20" opacity=".5"/><circle cx="100" cy="12" r="2.6" fill="#f4d896" stroke="none"/></g>
+        </svg>
+        <img class="cd-logo" src="img/kudus-gold.webp" alt="Kudus Kota Kretek Cultural Visit">
+      </div>
+      <div class="clock rv" style="--i:3" aria-live="off">
+        <div><b data-u="d">00</b><small>Hari</small></div>
+        <div><b data-u="h">00</b><small>Jam</small></div>
+        <div><b data-u="m">00</b><small>Menit</small></div>
+        <div><b data-u="s">00</b><small>Detik</small></div>
+      </div>
+      <p class="ready rv" style="--i:4" id="ready">Kota Kretek menanti</p>
+    </div></div>
+  </section>
+
+  <!-- 8. PIC AREA -->
+  <section class="page" data-title="PIC Area">
+    <div class="frame"><img class="leaf l" src="img/leaf.webp" alt="" aria-hidden="true"><img class="leaf r" src="img/leaf.webp" alt="" aria-hidden="true"><div class="fit">
+      <p class="eyebrow rv" style="--i:0">Contact Person</p>
+      <h2 class="rv" style="--i:1">PIC <em>Area</em></h2>
+      <p class="lead rv" style="--i:2">Ada pertanyaan? Hubungi PIC area kamu.</p>
+      <div class="rv" style="--i:3" data-tabs>
+        <div class="tabs" role="tablist" aria-label="Area">
+          <button role="tab" aria-selected="true">DKI Raya</button><button role="tab" aria-selected="false">Banten</button><button role="tab" aria-selected="false">Citarum</button>
+        </div>
+        <div class="panel on pics" role="tabpanel" id="pics-dki"></div>
+        <div class="panel" role="tabpanel"><div class="soon"><b>Segera hadir</b>Kontak PIC Area Banten akan diumumkan.</div></div>
+        <div class="panel" role="tabpanel"><div class="soon"><b>Segera hadir</b>Kontak PIC Area Citarum akan diumumkan.</div></div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- 9. DARURAT -->
+  <section class="page" data-title="Kontak Darurat">
+    <div class="frame"><img class="leaf l" src="img/leaf.webp" alt="" aria-hidden="true"><img class="leaf r" src="img/leaf.webp" alt="" aria-hidden="true"><div class="fit">
+      <p class="eyebrow rv" style="--i:0">Bila Diperlukan</p>
+      <h2 class="rv" style="--i:1">Kontak <em>Darurat</em></h2>
+      <div class="sos" id="sos"></div>
+      <div class="foot rv" style="--i:6">
+        <img src="img/kudus-gold.webp" alt="Kudus Kota Kretek Cultural Visit">
+        <p>Kawan Coklat Community · 2026</p>
+      </div>
+    </div></div>
+  </section>
+</main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  var deck=document.getElementById('deck');
+  var pages=[].slice.call(document.querySelectorAll('.deck .page'));
+
+  /* gold dust */
+  var dust=document.getElementById('dust'), dh='';
+  for(var i=0;i<22;i++){
+    dh+='<i style="left:'+(Math.random()*100).toFixed(1)+'%;--z:'+(2+Math.random()*3).toFixed(1)+'px;--t:'+(11+Math.random()*12).toFixed(1)+'s;--d:-'+(Math.random()*20).toFixed(1)+'s;--x:'+(Math.random()*60-30).toFixed(0)+'px"></i>';
+  }
+  dust.innerHTML=dh;
+
+  /* guest name from #Nama_Lengkap */
+  try{
+    var h=decodeURIComponent((location.hash||'').slice(1)).replace(/[_~]+/g,' ').replace(/\s+/g,' ').trim();
+    if(h && h.length<60){ document.getElementById('guest').textContent=h; }
+  }catch(e){}
+
+  /* toast + copy */
+  var toast=document.getElementById('toast'), tt;
+  function say(t){toast.textContent=t;toast.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('on')},1800)}
+  function copy(num,label){
+    function ok(){say(label+' disalin: '+num)}
+    function fb(){var ta=document.createElement('textarea');ta.value=num;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');ok()}catch(e){say(num)}document.body.removeChild(ta)}
+    try{ if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(num).then(ok,fb)} else fb() }catch(e){fb()}
+  }
+
+  /* PIC DKI */
+  var pics=[
+    ['Jakarta<br>Timur','Ichar','0838-3413-0744','6283834130744'],
+    ['Jakarta<br>Timur','Rosid','0852-8440-4012','6285284404012'],
+    ['Jakarta<br>Selatan','Teguh','0855-1468-303','628551468303'],
+    ['Jakarta<br>Selatan','Yudi','0812-8513-7885','6281285137885'],
+    ['Jakarta<br>Barat','Ismaidi','0819-3208-2624','6281932082624'],
+    ['Depok','Juni','0822-4926-3646','6282249263646']
+  ];
+  var waIc='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.8-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3z"/></svg>';
+  document.getElementById('pics-dki').innerHTML=pics.map(function(p,i){
+    return '<div class="pic rv" style="--i:'+(4+i)+'"><span class="dso">'+p[0]+'</span><div class="who"><b>'+p[1]+'</b><span>'+p[2]+'</span></div>'+
+      '<a class="wa" href="https://wa.me/'+p[3]+'" target="_blank" rel="noopener" aria-label="WhatsApp '+p[1]+'">'+waIc+'Chat</a></div>';
+  }).join('');
+
+  /* emergency */
+  var ic={
+    hotel:'<svg viewBox="0 0 24 24"><path d="M4 21V5h11v16M15 9h5v12M2 21h20M7 8h2M7 12h2M7 16h2M11 8h1M11 12h1M11 16h1"/></svg>',
+    rs:'<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M12 9v8M8 13h8M9 5V3h6v2"/></svg>',
+    pol:'<svg viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.4 9.3-8 11-4.6-1.7-8-6-8-11V5z"/><path d="M12 8l1.2 2.5 2.8.4-2 2 .5 2.8-2.5-1.3-2.5 1.3.5-2.8-2-2 2.8-.4z"/></svg>'
+  };
+  var sos=[
+    ['hotel','Hotel','Khas Hotel Semarang','(024) 8657 0840','02486570840'],
+    ['rs','Rumah Sakit · Semarang','SMC RS Telogorejo','(024) 8646 6000','02486466000'],
+    ['rs','Rumah Sakit · Kudus','RS Mardi Rahayu','(0291) 438 234','0291438234'],
+    ['pol','Polisi · Kudus','Polres Kudus','(0291) 433 008','0291433008']
+  ];
+  var sh=sos.map(function(s,i){
+    return '<div class="row rv" style="--i:'+(2+i*.6)+'"><span class="si">'+ic[s[0]]+'</span><div class="who"><small>'+s[1]+'</small><b>'+s[2]+'</b><span>'+s[3]+'</span></div><button class="cp" type="button" data-n="'+s[4]+'" data-l="'+s[2]+'">Salin</button></div>';
+  }).join('');
+  sh+='<div class="short rv" style="--i:5"><button type="button" data-n="112" data-l="Darurat"><b>112</b><span>Darurat</span></button><button type="button" data-n="110" data-l="Polisi"><b>110</b><span>Polisi</span></button><button type="button" data-n="119" data-l="Ambulans"><b>119</b><span>Ambulans</span></button></div>';
+  var sosEl=document.getElementById('sos'); sosEl.innerHTML=sh;
+  sosEl.addEventListener('click',function(e){var b=e.target.closest('[data-n]'); if(b) copy(b.getAttribute('data-n'),b.getAttribute('data-l'))});
+
+  /* draw icons in the visible day */
+  function drawPanel(panel){
+    if(!panel) return;
+    [].forEach.call(panel.querySelectorAll('.stop'),function(s,i){ setTimeout(function(){s.classList.add('seen')}, 250+i*260) });
+  }
+
+  /* tabs */
+  [].forEach.call(document.querySelectorAll('[data-tabs]'),function(set){
+    var tabs=[].slice.call(set.querySelectorAll('[role=tab]'));
+    var panels=[].slice.call(set.querySelectorAll('[role=tabpanel]'));
+    function sel(i){
+      tabs.forEach(function(t,j){t.setAttribute('aria-selected',j===i?'true':'false');t.tabIndex=j===i?0:-1});
+      panels.forEach(function(p,j){p.classList.toggle('on',j===i)});
+      var r=panels[i].querySelector('.rail'); if(r){r.scrollLeft=0;upd(r);drawPanel(panels[i])}
+      fitAll();
+    }
+    tabs.forEach(function(t,i){
+      t.addEventListener('click',function(){sel(i)});
+      t.addEventListener('keydown',function(e){
+        if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();var n=(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length;sel(n);tabs[n].focus()}
+      });
+    });
+  });
+
+  /* rails */
+  function upd(r){
+    var cards=[].slice.call(r.children), prog=r.parentNode.querySelector('.prog'); if(!prog) return;
+    if(prog.children.length!==cards.length){prog.innerHTML=cards.map(function(){return '<i></i>'}).join('')}
+    var mid=r.scrollLeft+r.clientWidth/2, best=0, bd=1e9;
+    cards.forEach(function(c,i){var d=Math.abs(c.offsetLeft+c.offsetWidth/2-mid); if(d<bd){bd=d;best=i}});
+    [].forEach.call(prog.children,function(d,i){d.classList.toggle('on',i===best)});
+    cards.forEach(function(c,i){c.classList.toggle('cur',i===best)});
+  }
+  [].forEach.call(document.querySelectorAll('.rail'),function(r){
+    upd(r); var t; r.addEventListener('scroll',function(){cancelAnimationFrame(t);t=requestAnimationFrame(function(){upd(r)})},{passive:true});
+  });
+
+  /* fit each page to one screen */
+  function fitOne(fr){
+    var fit=fr.querySelector('.fit'); if(!fit) return;
+    fit.style.setProperty('--s',1); fit.style.setProperty('--mb','0px'); fit.style.minHeight='';
+    var cs=getComputedStyle(fr), avail=fr.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom);
+    var s=1, nat=fit.scrollHeight;
+    if(nat>avail+1){ s=Math.max(.6, avail/nat); fit.style.setProperty('--s',s); }
+    if(fr.hasAttribute('data-fill')) fit.style.minHeight=(avail/s)+'px';
+    fit.style.setProperty('--mb',(fit.scrollHeight*(s-1))+'px');
+  }
+  function fitAll(){ [].forEach.call(document.querySelectorAll('.frame'),fitOne); }
+  fitAll();
+  window.addEventListener('resize',function(){clearTimeout(window.__f);window.__f=setTimeout(fitAll,120)});
+  if(document.fonts&&document.fonts.ready){document.fonts.ready.then(fitAll)}
+  [].forEach.call(document.images,function(im){ if(!im.complete) im.addEventListener('load',fitAll,{once:true}) });
+
+  /* dots + reveal */
+  var dots=document.getElementById('dots');
+  pages.forEach(function(p){
+    var b=document.createElement('button'); b.type='button'; b.setAttribute('aria-label',p.dataset.title);
+    b.addEventListener('click',function(){p.scrollIntoView({behavior:'smooth'})}); dots.appendChild(b);
+  });
+  function mark(i){ [].forEach.call(dots.children,function(d,j){d.setAttribute('aria-current',j===i?'true':'false')}) }
+  function enter(p){
+    if(!p.classList.contains('in')){ p.classList.add('in'); }
+    var on=p.querySelector('.panel.on .rail'); if(on) drawPanel(on.parentNode);
+  }
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting && e.intersectionRatio>.55){ enter(e.target); mark(pages.indexOf(e.target)); } });
+    },{root:deck,threshold:[.56]});
+    pages.forEach(function(p){io.observe(p)});
+  } else { pages.forEach(enter); }
+  setTimeout(function(){ pages.forEach(function(p){p.classList.add('in')}) }, 9000);
+  mark(0);
+
+  /* cover */
+  var gate=document.getElementById('gate');
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){ gate.classList.add('in'); }); });
+  function openGate(){
+    [].forEach.call(gate.querySelectorAll('.veil span'),function(s){s.style.transform='scaleX(1)'});
+    setTimeout(function(){ gate.classList.add('open'); deck.scrollTop=0; enter(pages[0]); },560);
+    try{sessionStorage.setItem('kc-open','1')}catch(e){}
+  }
+  document.getElementById('openBtn').addEventListener('click',openGate);
+  try{ if(sessionStorage.getItem('kc-open')==='1'){ gate.classList.add('open'); enter(pages[0]); } }catch(e){}
+
+  /* countdown */
+  var target=new Date('2026-11-10T05:00:00+07:00').getTime();
+  var els={}; [].forEach.call(document.querySelectorAll('[data-u]'),function(b){els[b.dataset.u]=b});
+  function pad(n){return (n<10?'0':'')+n}
+  function set(el,v){ if(el.textContent!==v){ el.textContent=v; el.classList.remove('tick'); void el.offsetWidth; el.classList.add('tick'); } }
+  function tick(){
+    var d=Math.max(0,target-Date.now()), s=Math.floor(d/1000);
+    set(els.d,pad(Math.floor(s/86400))); set(els.h,pad(Math.floor(s%86400/3600)));
+    set(els.m,pad(Math.floor(s%3600/60))); set(els.s,pad(s%60));
+    if(d===0){document.getElementById('ready').textContent='Selamat berangkat!'}
+  }
+  tick(); setInterval(tick,1000);
+})();
+</script>
+
+</body>
+</html>
