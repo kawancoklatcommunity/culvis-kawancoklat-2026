@@ -11,6 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,600&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap">
 <style>
+@font-face{font-family:'CG Name';src:url(fonts/cormorant-garamond-latin-600-italic.woff2) format('woff2');font-weight:600;font-style:italic;font-display:block}
 :root{color-scheme:only dark;--gold:#deba6e;--gold-hi:#f4d896;--gold-lo:#a3814a;--cream:#f2e5cc;--muted:#bba381;--line:rgba(222,186,110,.34)}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{min-height:100%;background:#120804;color:var(--cream);font-family:'Plus Jakarta Sans',system-ui,sans-serif}
@@ -30,6 +31,7 @@ h1{font:500 30px/1.1 'Cormorant Garamond',serif;margin:10px 0 4px}
 .steps{text-align:left;margin-top:18px;padding-top:16px;border-top:1px solid rgba(222,186,110,.16);font-size:12.5px;line-height:1.6;color:var(--muted)}
 .steps b{color:var(--cream)}
 .steps ol{padding-left:18px}
+.bar{margin:12px auto 0;width:62%;max-width:220px;height:4px;border-radius:4px;background:rgba(222,186,110,.18);overflow:hidden}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#c99b4f,#f4d896);transition:width .2s}
 .msg{margin-top:14px;font-size:12px;color:var(--gold-hi);min-height:18px}
 .err{color:#f4b49b}
 </style>
@@ -40,7 +42,8 @@ h1{font:500 30px/1.1 'Cormorant Garamond',serif;margin:10px 0 4px}
   <h1>Cultural Visit 2026</h1>
   <p class="nm" id="nm">—</p>
   <div class="ph" id="phBox" hidden><small>Pilih kontak dengan nomor</small><span id="ph"></span></div>
-  <div class="gif"><img src="img/cover-share.gif" alt="Cover undangan" id="gifImg"></div>
+  <div class="gif"><img src="img/cover-base.gif" alt="Cover undangan" id="gifImg"></div>
+  <div class="bar" id="bar" hidden><i id="barFill"></i></div>
   <button class="btn" id="share" type="button" disabled>
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
     <span id="shareTxt">Menyiapkan GIF...</span>
@@ -56,7 +59,8 @@ h1{font:500 30px/1.1 'Cormorant Garamond',serif;margin:10px 0 4px}
     </ol>
   </div>
 </main>
-<script>
+<script type="module">
+import {GIFEncoder, quantize, applyPalette} from './js/gifenc.esm.js';
 (function(){
   var BASE='https://kawancoklatcommunity.github.io/culvis-kawancoklat-2026/';
   var q={}; (location.hash||'').slice(1).split('&').forEach(function(kv){var i=kv.indexOf('=');if(i>0){try{q[kv.slice(0,i)]=decodeURIComponent(kv.slice(i+1))}catch(e){}}});
@@ -82,11 +86,53 @@ h1{font:500 30px/1.1 'Cormorant Garamond',serif;margin:10px 0 4px}
   document.getElementById('textOnly').addEventListener('click',textOnly);
 
   var file=null;
-  fetch('img/cover-share.gif').then(function(r){ if(!r.ok) throw 0; return r.blob(); }).then(function(b){
-    file=new File([b],'Undangan_Culvis_KaCo_2026.gif',{type:'image/gif'});
+  var bar=document.getElementById('bar'), barFill=document.getElementById('barFill');
+  function ready(f){
+    file=f;
     if(navigator.canShare && navigator.canShare({files:[file],text:text})){ btn.disabled=false; txt.textContent='Kirim via WhatsApp'; }
     else { txt.textContent='HP ini belum mendukung'; msgEl.textContent='Browser ini tidak bisa mengirim GIF. Buka dari Chrome di HP, atau pakai "Kirim teks saja".'; msgEl.className='msg err'; }
-  }).catch(function(){ txt.textContent='GIF gagal dimuat'; msgEl.textContent='Periksa koneksi lalu muat ulang halaman ini.'; msgEl.className='msg err'; });
+  }
+  function fail(){ txt.textContent='GIF gagal dimuat'; msgEl.textContent='Periksa koneksi lalu muat ulang halaman ini.'; msgEl.className='msg err'; }
+
+  var W=432, H=540, CX=216, CY=395, MAXW=330;
+  function drawName(ctx,a){
+    if(a<=0) return;
+    var fs=32; ctx.font='italic 600 '+fs+'px "CG Name"';
+    while(ctx.measureText(name).width>MAXW && fs>18){ fs-=1; ctx.font='italic 600 '+fs+'px "CG Name"'; }
+    ctx.save(); ctx.globalAlpha=Math.min(1,a); ctx.textAlign='center'; ctx.textBaseline='middle';
+    ctx.shadowColor='rgba(0,0,0,.65)'; ctx.shadowBlur=14; ctx.fillStyle='#f4d896';
+    ctx.fillText(name,CX,CY+(1-Math.min(1,a))*8); ctx.restore();
+  }
+  async function personalize(){
+    var buf=await (await fetch('img/cover-base.gif')).arrayBuffer();
+    if(!('ImageDecoder' in window)){ return new File([buf],'Undangan_Culvis_KaCo_2026.gif',{type:'image/gif'}); }
+    txt.textContent='Menyiapkan GIF personal...'; bar.hidden=false;
+    await document.fonts.load('italic 600 32px "CG Name"');
+    var dec=new ImageDecoder({data:buf,type:'image/gif'}); await dec.tracks.ready;
+    var n=dec.tracks.selectedTrack.frameCount;
+    var cv=document.createElement('canvas'); cv.width=W; cv.height=H; var ctx=cv.getContext('2d',{willReadFrequently:true});
+    var ref=await dec.decode({frameIndex:Math.min(40,n-1)}); ctx.drawImage(ref.image,0,0,W,H); ref.image.close(); drawName(ctx,1);
+    var palette=quantize(ctx.getImageData(0,0,W,H).data,127); var T=palette.length; palette.push([0,0,0]);
+    var gif=GIFEncoder(), prev=null;
+    for(var i=0;i<n;i++){
+      var fr=await dec.decode({frameIndex:i});
+      ctx.clearRect(0,0,W,H); ctx.drawImage(fr.image,0,0,W,H);
+      var dur=(fr.image.duration||100000)/1000; fr.image.close();
+      drawName(ctx,(i-9)/8);
+      var idx=applyPalette(ctx.getImageData(0,0,W,H).data,palette);
+      if(prev){ var out=new Uint8Array(idx.length); for(var k=0;k<idx.length;k++){ out[k]=(idx[k]===prev[k])?T:idx[k]; } prev=idx; gif.writeFrame(out,W,H,{delay:Math.round(dur),transparent:true,transparentIndex:T,dispose:1}); }
+      else { prev=idx; gif.writeFrame(idx,W,H,{palette:palette,delay:Math.round(dur),repeat:0,dispose:1}); }
+      if(i%8===0){ barFill.style.width=Math.round(i/n*100)+'%'; txt.textContent='Menyiapkan GIF personal... '+Math.round(i/n*100)+'%'; await new Promise(function(r){setTimeout(r,0)}); }
+    }
+    dec.close(); gif.finish(); barFill.style.width='100%';
+    var f=new File([gif.bytes()],'Undangan_'+slug+'.gif',{type:'image/gif'});
+    document.getElementById('gifImg').src=URL.createObjectURL(f);
+    setTimeout(function(){bar.hidden=true},600);
+    return f;
+  }
+  personalize().then(ready).catch(function(e){ console.error(e);
+    fetch('img/cover-base.gif').then(function(r){return r.blob()}).then(function(b){ ready(new File([b],'Undangan_Culvis_KaCo_2026.gif',{type:'image/gif'})); }).catch(fail);
+  });
 
   btn.addEventListener('click',function(){
     if(!file) return;
