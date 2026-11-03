@@ -844,7 +844,13 @@ h2 em{font-style:italic;color:var(--gold-hi);
 
   /* guest from #ID-Nama_Lengkap (or #Nama_Lengkap) */
   var TRACK_URL='https://script.google.com/macros/s/AKfycbwRcdggToNOhRUHKh2WycWvFok_7faW81-SVmTpoLfGIx6nfHgMT35PhNiX-rlNy-EOPA/exec';
-  var GID='', GNAME='';
+  var GID='', GNAME='', NOLOG=false;
+  try{
+    var raw=(location.hash||'').slice(1);
+    if(raw==='mode-panitia'){ localStorage.setItem('kc-nolog','1'); location.replace(location.pathname+'#Panitia_Kawan_Coklat'); }
+    if(raw==='mode-peserta'){ localStorage.removeItem('kc-nolog'); }
+    NOLOG=localStorage.getItem('kc-nolog')==='1';
+  }catch(e){}
   try{
     var h=decodeURIComponent((location.hash||'').slice(1));
     var m=h.match(/^([A-Z]\d{2,3})-(.+)$/); if(m){GID=m[1]; h=m[2];}
@@ -853,6 +859,7 @@ h2 em{font-style:italic;color:var(--gold-hi);
   }catch(e){}
   function track(o){
     if(!TRACK_URL||!GID) return Promise.resolve(false);
+    if(NOLOG) return Promise.resolve(true);
     o.id=GID; o.n=GNAME; var um=(navigator.userAgent||'').match(/\(([^)]*)\)/); o.ua=(um?um[1]:'').slice(0,110);
     try{ return fetch(TRACK_URL,{method:'POST',mode:'no-cors',keepalive:true,headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(o)}).then(function(){return true},function(){return false}); }catch(e){ return Promise.resolve(false); }
   }
