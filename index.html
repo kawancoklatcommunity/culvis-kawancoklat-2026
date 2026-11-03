@@ -848,7 +848,7 @@ h2 em{font-style:italic;color:var(--gold-hi);
   try{
     var raw=(location.hash||'').slice(1);
     if(raw==='mode-panitia'){ localStorage.setItem('kc-nolog','1'); location.replace(location.pathname+'#Panitia_Kawan_Coklat'); }
-    if(raw==='mode-peserta'){ localStorage.removeItem('kc-nolog'); }
+    if(raw==='mode-peserta'){ localStorage.removeItem('kc-nolog'); location.replace(location.pathname+'#Tes_Panitia'); }
     NOLOG=localStorage.getItem('kc-nolog')==='1';
   }catch(e){}
   try{
