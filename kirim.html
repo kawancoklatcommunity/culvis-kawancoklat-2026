@@ -42,6 +42,7 @@ h1{font:500 30px/1.1 'Cormorant Garamond',serif;margin:10px 0 4px}
   <h1>Cultural Visit 2026</h1>
   <p class="nm" id="nm">—</p>
   <div class="ph" id="phBox" hidden><small>Pilih kontak dengan nomor</small><span id="ph"></span></div>
+  <div><a class="alt" id="saveCt" href="#" hidden>+ Simpan nomor ini ke kontak HP</a></div>
   <div class="gif"><img src="img/cover-base.gif" alt="Cover undangan" id="gifImg"></div>
   <div class="bar" id="bar" hidden><i id="barFill"></i></div>
   <button class="btn" id="share" type="button" disabled>
@@ -51,6 +52,7 @@ h1{font:500 30px/1.1 'Cormorant Garamond',serif;margin:10px 0 4px}
   <p class="msg" id="msg" role="status"></p>
   <div class="steps">
     <ol>
+      <li>Kalau nomor peserta <b>belum tersimpan</b> di HP, tekan <b>+ Simpan nomor ini ke kontak HP</b> dulu, lalu simpan.</li>
       <li>Tekan <b>Kirim via WhatsApp</b>, lalu pilih <b>WhatsApp</b>.</li>
       <li>Pilih kontak peserta <b>sesuai nama dan nomor di atas</b>.</li>
       <li>GIF personal otomatis terlampir. Kalau teks undangan belum muncul di kolom caption, <b>tahan kolom caption lalu pilih Tempel/Paste</b>. Teksnya sudah otomatis tersalin saat tombol ditekan.</li>
@@ -72,6 +74,12 @@ import {GIFEncoder, quantize, applyPalette} from './js/gifenc.esm.js';
   document.getElementById('nm').textContent=name;
   if(phone){ document.getElementById('phBox').hidden=false; document.getElementById('ph').textContent='+'+phone.replace(/^(\d{2})(\d{3})(\d{4})(\d+)$/,'$1 $2-$3-$4'); }
   var link=BASE+'#'+slug;
+  if(phone){
+    var vcf='BEGIN:VCARD\r\nVERSION:3.0\r\nFN:'+name+' (Culvis)\r\nN:;'+name+' (Culvis);;;\r\nTEL;TYPE=CELL:+'+phone+'\r\nEND:VCARD\r\n';
+    var sc=document.getElementById('saveCt');
+    sc.href=URL.createObjectURL(new Blob([vcf],{type:'text/vcard'}));
+    sc.download=slug+'.vcf'; sc.hidden=false;
+  }
   var text='Halo *'+name+'* 👋\n\n✨ *CULTURAL VISIT KAWAN COKLAT COMMUNITY 2026* ✨\n_Kudus Kota Kretek_\n\nSelamat! Kamu terpilih menjadi salah satu Kawan Coklat yang akan berangkat ke *Kudus Kota Kretek* bersama Kawan Coklat Community 🎉\n\n📅 10–12 November 2026\n📍 Semarang & Kudus\n\nJadwal, dresscode, dan info lengkapnya ada di undangan digital kamu ya 👇\n'+link+'\n\nBanyak keseruan dan kejutan yang sudah menunggu di sana 🔥\n\nJangan lupa isi konfirmasi kehadiran di dalam undangan 🙏\n\nSo, jangan sampai kelewatan ya.\nSampai jumpa di Kudus Kota Kretek! 🙌';
 
   function copyText(){
